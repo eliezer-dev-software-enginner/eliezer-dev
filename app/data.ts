@@ -12,6 +12,7 @@ import javafx from './assets/java.webp';
 import node from './assets/nodejs.png';
 import plicssw from './assets/plics-home.png';
 import plicsswsite from './assets/plics-sw-landing-page.png';
+import reactnative from './assets/react-native.png';
 import react from './assets/react.png';
 import realtec from './assets/realtec.png';
 import springboot from './assets/springboot.png';
@@ -203,5 +204,9 @@ export const techs = [
   {
     src: springboot,
     alt: 'Spring Boot',
+  },
+  {
+    src: reactnative,
+    alt: 'React Native',
   },
 ];
