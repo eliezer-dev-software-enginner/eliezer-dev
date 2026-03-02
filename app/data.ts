@@ -1,4 +1,4 @@
-import venda_curso_ia from './assets/banner_site_curso_ia.png';
+import appFindProcess from './assets/app-find-process.png';
 import buscador_de_dominio_cover from './assets/buscador_de_dominio_cover.jpg';
 import coesion_logo from './assets/coesion-javax-logo.png';
 import docker from './assets/docker.png';
@@ -10,9 +10,11 @@ import postgresql from './assets/icons8-postgresql-96.png';
 import java from './assets/java.png';
 import javafx from './assets/java.webp';
 import node from './assets/nodejs.png';
+import plicssw from './assets/plics-home.png';
+import plicsswsite from './assets/plics-sw-landing-page.png';
 import react from './assets/react.png';
+import realtec from './assets/realtec.png';
 import springboot from './assets/springboot.png';
-import tacles_cover from './assets/tacles_cover.jpg';
 import typescript from './assets/typescript.png';
 import { Project } from './components/CardProjectComponent';
 
@@ -33,33 +35,83 @@ export const projects: Project[] = [
   },
 
   {
-    cover: venda_curso_ia,
-    coverAlt: 'Imagem de fundo da venda de curso IA',
+    cover: plicsswsite,
+    coverAlt: 'Imagem de fundo do website Plics SW',
     description:
-      'Esta é uma landing page moderna e otimizada para conversão, desenvolvida para a venda de um curso de Inteligência Artificial. O site conta com estratégias avançadas de SEO, elementos de persuasão como gatilhos de escassez, provas sociais e depoimentos positivos, tudo cuidadosamente estruturado para maximizar o engajamento do visitante. Após a confirmação do pagamento, o usuário é redirecionado para uma página de sucesso, onde pode facilmente acessar o conteúdo completo do curso.',
-    title: 'Página de Venda de curso de IA',
+      'Landing page para compra do aplicativo de ERP (Plics SW), ela é uma landing page minimalista e profissional listando os benefícios e as vantagens do sistema, ela foi construída com NextJS e o gateway de pagamento que utilizei foi o Mercado Pago, pois já sou acostumado com ele e a propósito como a proposta da landing page é ser minimalista então só é possível pagamento com PIX. Após pagamento bem sucedido, o usuário recebe sua chave de ativação e links de download dos aplicativos tanto para Linux quanto para Windows. ',
+    title: 'Plics SW - Site oficial',
     btnText: 'Acessar o site',
-    href: 'https://curso-ia-pagina-venda.vercel.app/',
-    techs: [
-      'React',
-      'NextJS',
-      'CSS',
-      'MercadoPago',
-      'SEO',
-      'Javascript',
-      'Typescript',
-    ],
+    href: 'https://plics-sw-webpage.vercel.app/',
+    techs: ['React', 'Typescript', 'CSS', 'Mercado Pago', 'Next.js'],
   },
+
   {
-    cover: tacles_cover,
-    coverAlt: 'Imagem de fundo da Tacles',
+    cover: plicssw,
+    coverAlt:
+      'Imagem de fundo do coesion javafx - Toolset com diversas ferramentas integradas para agilizar o desenvolvimento de aplicativos desktop',
     description:
-      'Este site permite a criação de posts personalizados para o Discord,com preview em tempo real e contém também funcionalidades premium como Repost ilimitado, cadastro de ilimitadas webhooks e posts ilimitados.',
-    title: 'Tacles',
-    btnText: 'Acessar o site',
-    href: 'https://www.tacles.com.br/',
-    techs: ['React', 'Typescript', 'CSS', 'Java', 'SpringBoot'],
+      'Plics SW é um aplicativo ERP, desktop e offline para pequenos estabelecimentos. Ele está disponível para Windows e para Linux. Ele possui opções de gerenciamento de estoque, financeiro, clientes e ordem de serviço. Para o desenvlvimento fiz uso do meu framework Megalodonte que é um wrapper sobre o JavaFX (framework java para criação de aplicativos desktop multiplataforma). O aplicativo usa SQlite para persistência.',
+    title: 'Plics SW - Aplicativo Desktop',
+    coverImageIsSquare: false,
+    btnText: 'Baixar aplicativo (Windows E Linux)',
+    href: 'https://github.com/eliezer-dev-software-enginner/plics-sw/releases/tag/v1.0.0',
+    techs: ['JavaFX', 'Java', 'Windows', 'Desktop', 'ERP', 'Linux', 'SQLite'],
   },
+
+  {
+    cover: appFindProcess,
+    coverAlt:
+      'Imagem de fundo do coesion javafx - Toolset com diversas ferramentas integradas para agilizar o desenvolvimento de aplicativos desktop',
+    description:
+      'O find-process é um aplicativo que desenvolvi pra resolver um problema pra mim e então decidi liberar ele pra uso geral. O problema em questão se refere a identificar processos que estão rodando em uma determinada porta, e então encerrar esses processos. Eu sempre tinha que digitar comandos no terminal para listar processos e para encerrá-los, agora com o aplicativo isso se tornou bem trivial de tão fácil. Fiz uso da meu framework Megalodonte para criação rápida do app.',
+    title: 'Find-Process',
+    coverImageIsSquare: false,
+    btnText: 'Baixar aplicativo (Windows)',
+    href: 'https://github.com/eliezer-dev-software-enginner/find-process/releases/download/release/find-process-1.0.0.msi',
+    techs: ['JavaFX', 'Java', 'Windows', 'Desktop', 'Ferramenta'],
+  },
+
+  {
+    cover: realtec,
+    coverAlt:
+      'Imagem de fundo do coesion javafx - Toolset com diversas ferramentas integradas para agilizar o desenvolvimento de aplicativos desktop',
+    description:
+      'Realtec Processador é um aplicativo que desenvolvi para o teste seletivo da empresa Realtec. O candidato deveria criar uma solução em sua linguagem/tecnologia de sua preferência que permitissse ao usuário entrar com um CSV contendo os seguintes dados: data;conta;tipo;valor;descrição.Deveria calcular o saldo final por conta. Calcular totais de créditos, débitos e quantidade de lançamentos. Processar os registros na ordem do arquivo e registrar inconsistências quando o saldo ficar negativo em qualquer momento do processamento.',
+    title: 'Realtec Processador',
+    coverImageIsSquare: false,
+    btnText: 'Assistir minha apresentação',
+    href: 'https://youtu.be/rhrxS9Da0To',
+    techs: ['JavaFX', 'Java', 'Windows', 'Desktop', 'CSV'],
+  },
+
+  // {
+  //   cover: venda_curso_ia,
+  //   coverAlt: 'Imagem de fundo da venda de curso IA',
+  //   description:
+  //     'Esta é uma landing page moderna e otimizada para conversão, desenvolvida para a venda de um curso de Inteligência Artificial. O site conta com estratégias avançadas de SEO, elementos de persuasão como gatilhos de escassez, provas sociais e depoimentos positivos, tudo cuidadosamente estruturado para maximizar o engajamento do visitante. Após a confirmação do pagamento, o usuário é redirecionado para uma página de sucesso, onde pode facilmente acessar o conteúdo completo do curso.',
+  //   title: 'Página de Venda de curso de IA',
+  //   btnText: 'Acessar o site',
+  //   href: 'https://curso-ia-pagina-venda.vercel.app/',
+  //   techs: [
+  //     'React',
+  //     'NextJS',
+  //     'CSS',
+  //     'MercadoPago',
+  //     'SEO',
+  //     'Javascript',
+  //     'Typescript',
+  //   ],
+  // },
+  // {
+  //   cover: tacles_cover,
+  //   coverAlt: 'Imagem de fundo da Tacles',
+  //   description:
+  //     'Este site permite a criação de posts personalizados para o Discord,com preview em tempo real e contém também funcionalidades premium como Repost ilimitado, cadastro de ilimitadas webhooks e posts ilimitados.',
+  //   title: 'Tacles',
+  //   btnText: 'Acessar o site',
+  //   href: 'https://www.tacles.com.br/',
+  //   techs: ['React', 'Typescript', 'CSS', 'Java', 'SpringBoot'],
+  // },
 
   {
     cover: g1_cover,
