@@ -50,7 +50,7 @@ export default function Home() {
           </a>
 
           <a
-            href='https://www.linkedin.com/in/eliezersoftwareenginner/'
+            href='https://wa.link/2gsv2z'
             target='_blank'
             rel='noopener noreferrer'
             className='rounded-lg bg-green-600 px-6 py-3 text-lg font-bold text-white shadow-lg shadow-green-600/50 transition duration-300 hover:bg-green-500 hover:shadow-green-500/70'
@@ -109,7 +109,7 @@ export default function Home() {
       {/* 3. Projects Section - Grid of cards */}
       <section>
         <h2 className='text-4xl font-extrabold text-center mb-12 text-gray-50'>
-          Ferramentas que criei e estão no ar 🚀
+          Ferramentas que criei e estão no ar!
         </h2>
 
         {/* Grid layout for projects. Responsive: 1 column on mobile, 2 on medium, 3 on large */}
