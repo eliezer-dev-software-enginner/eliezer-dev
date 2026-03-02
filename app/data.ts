@@ -1,4 +1,4 @@
-import { Project } from './components/CardProjectComponent';
+import venda_curso_ia from './assets/banner_site_curso_ia.png';
 import buscador_de_dominio_cover from './assets/buscador_de_dominio_cover.jpg';
 import coesion_logo from './assets/coesion-javax-logo.png';
 import docker from './assets/docker.png';
@@ -7,11 +7,14 @@ import firebase from './assets/firebase_144.png';
 import g1_cover from './assets/g1.jpg';
 import jest from './assets/icons8-jest-96.png';
 import postgresql from './assets/icons8-postgresql-96.png';
+import java from './assets/java.png';
+import javafx from './assets/java.webp';
+import node from './assets/nodejs.png';
 import react from './assets/react.png';
+import springboot from './assets/springboot.png';
 import tacles_cover from './assets/tacles_cover.jpg';
-import tailwindcss from './assets/icons8-tailwindcss-144.png';
 import typescript from './assets/typescript.png';
-import venda_curso_ia from './assets/banner_site_curso_ia.png';
+import { Project } from './components/CardProjectComponent';
 
 //import kubernetes from "assets/kubernetes.png";
 
@@ -102,6 +105,12 @@ export const techs = [
     src: react,
     alt: 'ReactJS',
   },
+
+  {
+    src: java,
+    alt: 'Java',
+  },
+
   {
     src: firebase,
     alt: 'Firebase',
@@ -117,6 +126,11 @@ export const techs = [
   },
 
   {
+    src: node,
+    alt: 'NodeJs',
+  },
+
+  {
     src: typescript,
     alt: 'Typescript',
   },
@@ -129,8 +143,13 @@ export const techs = [
     src: postgresql,
     alt: 'PostgreSQL',
   },
+
   {
-    src: tailwindcss,
-    alt: 'TailwindCSS',
+    src: javafx,
+    alt: 'JavaFX',
+  },
+  {
+    src: springboot,
+    alt: 'Spring Boot',
   },
 ];

@@ -8,18 +8,40 @@
 
 .title {
   font-size: 3em;
+  text-align: center;
 }
 
 .subtitle {
-  font-size: 2em;
+  font-size: 1.7em;
+  text-align: center;
 }
 
 .greeting {
-  font-size: 1.7em;
+  font-size: 1.6em;
+  text-align: center;
 }
 
 .description {
   font-size: 1.3em;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 2em;
+  }
+  .subtitle {
+    font-size: 1.4em;
+    text-align: center;
+  }
+
+  .greeting {
+    font-size: 1.2em;
+    text-align: center;
+  }
+  .description {
+    font-size: 1em;
+  }
 }
 
 .header {
@@ -36,9 +58,11 @@
 .actionLinks {
   display: flex;
   column-gap: 15px;
+  flex-wrap: wrap;
 }
 
 .tecnologias_container {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }

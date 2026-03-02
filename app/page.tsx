@@ -1,7 +1,7 @@
 import { projects, techs } from './data';
 
-import CardProjectComponent from './components/CardProjectComponent';
 import Image from 'next/image';
+import CardProjectComponent from './components/CardProjectComponent';
 import RoundedImageComponent from './components/RoundedImageComponent';
 import s from './styles/Home.module.css';
 
@@ -41,7 +41,7 @@ export default function Home() {
         <div className={s.actionLinks}>
           {/* LinkedIn Button - Professional Blue */}
           <a
-            href='https://www.linkedin.com/in/eliezerbrasilian/'
+            href='https://www.linkedin.com/in/eliezersoftwareenginner/'
             target='_blank'
             rel='noopener noreferrer'
             className='rounded-lg bg-blue-700 px-6 py-3 text-lg font-bold text-white shadow-lg shadow-blue-700/50 transition duration-300 hover:bg-blue-600 hover:shadow-blue-600/70'
@@ -50,7 +50,7 @@ export default function Home() {
           </a>
 
           <a
-            href='https://www.linkedin.com/in/eliezerbrasilian/'
+            href='https://www.linkedin.com/in/eliezersoftwareenginner/'
             target='_blank'
             rel='noopener noreferrer'
             className='rounded-lg bg-green-600 px-6 py-3 text-lg font-bold text-white shadow-lg shadow-green-600/50 transition duration-300 hover:bg-green-500 hover:shadow-green-500/70'
@@ -58,12 +58,11 @@ export default function Home() {
             <i className='fab fa-whatsapp mr-2'></i> WhatsApp
           </a>
 
-          {/* Blog Button - Purple for content */}
           <a
             href='https://blog-do-eliezer.vercel.app/'
             target='_blank'
             rel='noopener noreferrer'
-            className='rounded-lg bg-purple-600 px-6 py-3 text-lg font-bold text-white shadow-lg shadow-purple-600/50 transition duration-300 hover:bg-purple-500 hover:shadow-purple-500/70'
+            className='rounded-lg px-6 py-3 text-lg font-bold text-white shadow-lg shadow-blue-600/50 transition duration-300 hover:bg-blue-600 hover:shadow-blue-500/70'
           >
             <i className='fas fa-blog mr-2'></i> Meu Blog
           </a>
