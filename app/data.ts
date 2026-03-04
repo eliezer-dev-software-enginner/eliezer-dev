@@ -5,6 +5,7 @@ import docker from './assets/docker.png';
 import estoky from './assets/estoky.png';
 import firebase from './assets/firebase_144.png';
 import g1_cover from './assets/g1.jpg';
+import gerar_v2_cover from './assets/gerar-v2.png';
 import jest from './assets/icons8-jest-96.png';
 import postgresql from './assets/icons8-postgresql-96.png';
 import java from './assets/java.png';
@@ -44,6 +45,17 @@ export const projects: Project[] = [
     btnText: 'Acessar o site',
     href: 'https://plics-sw-webpage.vercel.app/',
     techs: ['React', 'Typescript', 'CSS', 'Mercado Pago', 'Next.js'],
+  },
+
+  {
+    cover: gerar_v2_cover,
+    coverAlt: 'Imagem de fundo de requisição feita para o backend',
+    description:
+      'Aplicação backend criada para automatizar a criação de currículos especificos pra cada vaga localmente. Quanto ao backend, eu faço uso de NodeJs + Typescript + Docker para conteinizaração e replicabilidade. E pra geração de curriculos acontecer de fato, tenho integrações com Gemini e Grok',
+    title: 'Plics SW - Site oficial',
+    btnText: 'Assistir funcionamento',
+    href: 'https://www.linkedin.com/posts/eliezersoftwareenginner_vagas-ia-desenvolvedor-activity-7435000476271763456-ba-1?utm_source=share&utm_medium=member_desktop&rcm=ACoAADk2kUsBzm-Car7e9AYeGn6Fydi7QyEHOBI',
+    techs: ['Node.js', 'Typescript', 'Docker', 'IA', 'Gemini', 'Grok'],
   },
 
   {
