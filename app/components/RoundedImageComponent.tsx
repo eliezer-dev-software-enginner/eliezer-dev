@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import user from '../assets/user_4.png';
+import user from '../assets/eu.jpg';
 
 export default function RoundedImageComponent() {
   return (
