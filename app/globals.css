@@ -1,26 +1,225 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* === PALETTE: Artist Atelier === */
+  --cream: #f5f0e8;
+  --cream-dark: #ede6d6;
+  --ink: #1a1410;
+  --ink-light: #3d2f22;
+  --ink-muted: #7a6a58;
+  --ink-faint: #b8a898;
+
+  /* Accent - warm terracotta / burnt sienna */
+  --accent: #c8522a;
+  --accent-hover: #a63e1c;
+  --accent-light: #f2e0d8;
+  --accent-glow: rgba(200, 82, 42, 0.15);
+
+  /* Secondary accent - deep indigo ink */
+  --indigo-ink: #2e3a6e;
+  --indigo-light: #dde2f5;
+
+  /* Surfaces */
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --surface: #faf7f2;
+  --surface-raised: #ffffff;
+  --border: rgba(122, 106, 88, 0.2);
+  --border-strong: rgba(122, 106, 88, 0.4);
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Serif 4', 'Georgia', serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing rhythm */
+  --section-gap: 5rem;
+  --container-pad: clamp(1.5rem, 5vw, 4rem);
+
+  /* Shadows */
+  --shadow-soft: 0 2px 20px rgba(26, 20, 16, 0.06);
+  --shadow-card: 0 4px 32px rgba(26, 20, 16, 0.1);
+  --shadow-accent: 0 8px 40px rgba(200, 82, 42, 0.2);
+
+  /* Borders */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* === RESET & BASE === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* === TYPOGRAPHY === */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+p {
+  color: var(--ink-light);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* === SELECTION === */
+::selection {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+}
+
+/* === DECORATIVE ELEMENTS === */
+.ink-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+}
+
+.brushstroke-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.brushstroke-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+  transform-origin: left;
+  animation: brushIn 0.6s ease forwards;
+}
+
+@keyframes brushIn {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.7s ease both;
+}
+
+.fade-up-1 {
+  animation-delay: 0.1s;
+}
+.fade-up-2 {
+  animation-delay: 0.2s;
+}
+.fade-up-3 {
+  animation-delay: 0.35s;
+}
+.fade-up-4 {
+  animation-delay: 0.5s;
+}
+.fade-up-5 {
+  animation-delay: 0.65s;
+}
+
+/* === DIVIDER === */
+.art-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  position: relative;
+  margin: var(--section-gap) 0;
+}
+
+.art-divider::before {
+  content: '✦';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--background);
+  padding: 0 1rem;
+  color: var(--accent);
+  font-size: 12px;
+}
+
+/* === NOISE TEXTURE OVERLAY (subtle paper feel) === */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

@@ -1,3 +1,5 @@
+'use client';
+
 import Image, { StaticImageData } from 'next/image';
 
 export interface Project {
@@ -13,51 +15,162 @@ export interface Project {
 
 export default function CardProjectComponent(props: Project) {
   return (
-    // Project Card Container: Dark background, rounded corners, shadow, and hover effect
-    <article className='flex h-full transform flex-col overflow-hidden rounded-xl bg-gray-800 shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-indigo-500/50'>
-      {/* Card Header (Top) */}
-      <header className='border-b border-gray-600 bg-gray-700 p-5'>
-        <h3 className='text-xl font-bold text-indigo-400'>{props.title}</h3>
-      </header>
+    <article
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+        background: 'var(--surface-raised)',
+        border: '1px solid var(--border)',
+        borderRadius: 'var(--radius-lg)',
+        overflow: 'hidden',
+        boxShadow: 'var(--shadow-soft)',
+        transition:
+          'transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease',
+      }}
+      onMouseEnter={(e) => {
+        const el = e.currentTarget as HTMLElement;
+        el.style.transform = 'translateY(-5px)';
+        el.style.boxShadow = 'var(--shadow-card)';
+        el.style.borderColor = 'var(--accent)';
+      }}
+      onMouseLeave={(e) => {
+        const el = e.currentTarget as HTMLElement;
+        el.style.transform = 'translateY(0)';
+        el.style.boxShadow = 'var(--shadow-soft)';
+        el.style.borderColor = 'var(--border)';
+      }}
+    >
+      {/* Cover Image */}
+      <div
+        style={{
+          position: 'relative',
+          width: '100%',
+          aspectRatio: '16 / 9',
+          overflow: 'hidden',
+          background: 'var(--cream-dark)',
+        }}
+      >
+        <Image
+          src={props.cover}
+          alt={props.coverAlt}
+          fill
+          style={{ objectFit: 'cover' }}
+          priority
+        />
+        {/* Subtle warm overlay on image */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'linear-gradient(to bottom, transparent 60%, rgba(26,20,16,0.35) 100%)',
+          }}
+        />
+      </div>
 
-      {/* Rest of Card Content */}
-      <div className='flex flex-grow flex-col p-5'>
-        {/* Image Center - Aspect ratio for consistent height */}
-<div className='mb-4 aspect-video overflow-hidden rounded-lg border border-gray-600 relative'>
-          <Image
-            src={props.cover}
-            alt={props.coverAlt}
-            className='h-full w-full object-cover'
-            fill
-            priority
-          />
-        </div>
+      {/* Content */}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          flexGrow: 1,
+          padding: '1.25rem',
+          gap: '0.75rem',
+        }}
+      >
+        {/* Title */}
+        <h3
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: '1.2rem',
+            fontWeight: 700,
+            color: 'var(--ink)',
+            lineHeight: 1.2,
+          }}
+        >
+          {props.title}
+        </h3>
 
         {/* Description */}
-        <p className='mb-4 flex-grow text-gray-300'>{props.description}</p>
+        <p
+          style={{
+            fontFamily: 'var(--font-sans)',
+            fontSize: '0.88rem',
+            lineHeight: 1.65,
+            color: 'var(--ink-muted)',
+            flexGrow: 1,
+            display: '-webkit-box',
+            WebkitLineClamp: 4,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+          }}
+        >
+          {props.description}
+        </p>
 
-        {/* Tech Tags */}
-        <ul className='mb-6 flex flex-wrap gap-2'>
+        {/* Tech tags */}
+        <ul
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '6px',
+            listStyle: 'none',
+          }}
+        >
           {props.techs.map((v, key) => (
             <li
               key={key}
-              // Styled as clean, small tags
-              className='rounded-full bg-gray-600/50 px-3 py-1 text-xs font-medium text-gray-300'
+              style={{
+                fontFamily: 'var(--font-sans)',
+                fontSize: '0.68rem',
+                fontWeight: 600,
+                letterSpacing: '0.05em',
+                textTransform: 'uppercase',
+                color: 'var(--accent)',
+                background: 'var(--accent-light)',
+                padding: '3px 10px',
+                borderRadius: 'var(--radius-pill)',
+                border: '1px solid rgba(200, 82, 42, 0.25)',
+              }}
             >
-              #{v}
+              {v}
             </li>
           ))}
         </ul>
 
-        {/* Call-to-Action Link/Button */}
+        {/* CTA */}
         <a
           href={props.href}
           target='_blank'
           rel='noopener noreferrer'
-          className='mt-auto'
+          style={{ display: 'block', marginTop: 'auto' }}
         >
-          <button className='w-full rounded-lg bg-indigo-600 py-2 font-semibold text-white transition duration-200 hover:bg-indigo-500'>
-            {props.btnText}
+          <button
+            style={{
+              width: '100%',
+              padding: '10px 16px',
+              background: 'var(--ink)',
+              color: 'var(--cream)',
+              fontFamily: 'var(--font-sans)',
+              fontSize: '0.85rem',
+              fontWeight: 600,
+              letterSpacing: '0.04em',
+              border: 'none',
+              borderRadius: 'var(--radius-md)',
+              cursor: 'pointer',
+              transition: 'background 0.2s ease',
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.background =
+                'var(--accent)';
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.background =
+                'var(--ink)';
+            }}
+          >
+            {props.btnText} →
           </button>
         </a>
       </div>

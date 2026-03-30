@@ -1,68 +1,262 @@
+/* ===========================
+   HOME.MODULE.CSS
+   Artist Portfolio — Eliezer Dev
+   All values from global.css vars
+   =========================== */
+
+/* === PAGE CONTAINER === */
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 2%;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem var(--container-pad) 5rem;
+  gap: 0;
 }
 
-.title {
-  font-size: 2.4em;
-  text-align: center;
-}
-
-.subtitle {
-  font-size: 1.7em;
-  text-align: center;
-}
-
-.greeting {
-  font-size: 1.6em;
-  text-align: center;
-}
-
-.description {
-  font-size: 1.3em;
-  text-align: center;
-}
-
-@media (max-width: 600px) {
-  .title {
-    font-size: 2em;
-  }
-  .subtitle {
-    font-size: 1.4em;
-    text-align: center;
-  }
-
-  .greeting {
-    font-size: 1.2em;
-    text-align: center;
-  }
-  .description {
-    font-size: 1em;
-  }
-}
+/* ===========================
+   HERO / HEADER
+   =========================== */
 
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 10px;
+  text-align: center;
+  padding: 4rem 0 3rem;
+  width: 100%;
+  position: relative;
+}
+
+/* Subtle background radial for hero depth */
+.header::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .headerChildTop {
-  display: flex;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
 }
 
+/* === EYEBROW LABEL === */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  z-index: 1;
+  position: relative;
+}
+
+/* === HERO TITLE === */
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  z-index: 1;
+  position: relative;
+}
+
+/* Italic accent word within title */
+.title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* === HERO SUBTITLE === */
+.subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink-muted);
+  margin-bottom: 1rem;
+  z-index: 1;
+  position: relative;
+}
+
+/* === GREETING === */
+.greeting {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 400;
+  color: var(--ink-light);
+  margin-bottom: 1.5rem;
+  z-index: 1;
+  position: relative;
+}
+
+.greeting strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* === DESCRIPTION === */
+.description {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.85;
+  color: var(--ink-light);
+  max-width: 680px;
+  margin-bottom: 2.5rem;
+  z-index: 1;
+  position: relative;
+}
+
+.description strong {
+  font-weight: 700;
+  color: var(--ink);
+  font-style: italic;
+}
+
+/* === ACTION LINKS === */
 .actionLinks {
   display: flex;
-  column-gap: 15px;
+  gap: 1rem;
   flex-wrap: wrap;
+  justify-content: center;
+  z-index: 1;
+  position: relative;
 }
 
+/* ===========================
+   SECTION: TECHNOLOGIES
+   =========================== */
+
+.section {
+  width: 100%;
+  padding: 3rem 0;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+  position: relative;
+}
+
+/* Accent underline on section titles */
+.sectionTitle::after {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 3px;
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+  margin-top: 0.5rem;
+}
+
+.sectionSubtitle {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  margin-bottom: 2rem;
+}
+
+/* Tech grid */
 .tecnologias_container {
   display: flex;
-  gap: 20px;
+  gap: 14px;
   flex-wrap: wrap;
+  padding-top: 0.5rem;
+}
+
+/* Individual tech chip */
+.techChip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 16px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+  cursor: default;
+}
+
+.techChip:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--accent);
+}
+
+.techChipLabel {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+/* ===========================
+   SECTION: PROJECTS TITLE
+   =========================== */
+
+.projectsSectionTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--ink);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.projectsSectionTitle em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.projectsSectionSubtitle {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--ink-muted);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+
+@media (max-width: 640px) {
+  .header {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .actionLinks {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
 }

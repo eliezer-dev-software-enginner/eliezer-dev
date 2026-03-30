@@ -3,15 +3,58 @@ import user from '../assets/eu.jpg';
 
 export default function RoundedImageComponent() {
   return (
-    // Container for the image, applying a border
-    <div className='rounded-full border-4 border-indigo-500/70 p-1 shadow-2xl shadow-indigo-500/50'>
-      {/* Image with rounded full corners, and a large fixed size */}
-      <Image
-        src={user}
-        alt='Foto de Eliezer Brasilian'
-        className='h-50 w-40 rounded-full object-cover'
-        loading='lazy'
+    <div
+      style={{
+        position: 'relative',
+        display: 'inline-block',
+      }}
+    >
+      {/* Decorative offset ring */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: '-6px',
+          borderRadius: '50%',
+          border: '2px solid var(--accent)',
+          opacity: 0.4,
+        }}
       />
+      {/* Decorative offset square — "painterly" touch */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '-10px',
+          right: '-10px',
+          width: '40px',
+          height: '40px',
+          background: 'var(--accent-light)',
+          border: '1.5px solid var(--accent)',
+          borderRadius: '4px',
+          zIndex: 0,
+          opacity: 0.7,
+        }}
+      />
+      {/* Main avatar */}
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          borderRadius: '50%',
+          overflow: 'hidden',
+          border: '3px solid var(--surface-raised)',
+          boxShadow: 'var(--shadow-card)',
+          width: '150px',
+          height: '150px',
+        }}
+      >
+        <Image
+          src={user}
+          alt='Foto de Eliezer Assunção de Paulo'
+          fill
+          style={{ objectFit: 'cover' }}
+          loading='lazy'
+        />
+      </div>
     </div>
   );
 }

@@ -1,28 +1,20 @@
 import './globals.css';
 
-import { Geist, Geist_Mono } from 'next/font/google';
-
 import type { Metadata } from 'next';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
-
 export const metadata: Metadata = {
-  title: 'Eliezer Dev - Programador e engenheiro de software',
-  description: 'Programar é a minha arte',
+  title: 'Eliezer Dev — Programação como Arte',
+  description:
+    'Programar é a minha arte. Engenheiro de software com mais de 6 anos criando aplicações web com React e Next.js.',
   keywords:
-    'Desenvolvedor Web, Desenvolvedor Frontend, Desenvolvedor React, Engenheiro de Software, Portfólio, Next.js, JavaScript, TypeScript, Tailwind CSS, Eliezer, Eliezer Dev, Eliezer Software Enginner, Programador Fullstack, Programador Full Stack, Programador Web, Freelancer',
-  authors: [{ name: 'Eliezer Assunção de Paulo', url: 'https://nextjs.org' }],
+    'Desenvolvedor Web, Desenvolvedor Frontend, Desenvolvedor React, Engenheiro de Software, Portfólio, Next.js, JavaScript, TypeScript, Eliezer, Eliezer Dev, Eliezer Software Enginner, Programador Fullstack, Programador Web, Freelancer',
+  authors: [{ name: 'Eliezer Assunção de Paulo' }],
   openGraph: {
     type: 'website',
     siteName: 'Eliezer Dev',
+    title: 'Eliezer Dev — Programação como Arte',
+    description:
+      'Engenheiro de software que trata código como expressão artística.',
   },
 };
 
@@ -33,11 +25,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='pt-br'>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <head>
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link
+          rel='preconnect'
+          href='https://fonts.gstatic.com'
+          crossOrigin='anonymous'
+        />
+        <link
+          href='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap'
+          rel='stylesheet'
+        />
+        <link
+          rel='stylesheet'
+          href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'
+        />
+      </head>
+      <body className='antialiased'>{children}</body>
     </html>
   );
 }
