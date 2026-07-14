@@ -18,6 +18,7 @@ import react from './assets/react.png';
 import realtec from './assets/realtec.png';
 import springboot from './assets/springboot.png';
 import typescript from './assets/typescript.png';
+import { Certificate } from './components/CardCertificateComponent';
 import { Project } from './components/CardProjectComponent';
 
 //import kubernetes from "assets/kubernetes.png";
@@ -40,7 +41,7 @@ export const projects: Project[] = [
     description:
       'Plics SW é um aplicativo ERP, desktop e offline para pequenos estabelecimentos. Ele está disponível para Windows e para Linux. Ele possui opções de gerenciamento de estoque, financeiro, clientes e ordem de serviço. Para o desenvlvimento fiz uso do meu framework Megalodonte que é um wrapper sobre o JavaFX (framework java para criação de aplicativos desktop multiplataforma). O aplicativo usa SQlite para persistência.',
     title: 'Plics SW - Aplicativo Desktop',
-    coverImageIsSquare: false,
+
     btnText: 'Baixar aplicativo (Windows E Linux)',
     href: 'https://github.com/eliezer-dev-software-enginner/plics-sw/releases',
     techs: ['JavaFX', 'Java', 'Windows', 'Desktop', 'ERP', 'Linux', 'SQLite'],
@@ -53,7 +54,7 @@ export const projects: Project[] = [
     description:
       'O Estoky é um gerenciador de estoque totalmente funcional, desenvolvido com Next.js e React, que permite adicionar, editar, remover e visualizar produtos de forma rápida e intuitiva. Cada produto é apresentado em cards visuais, facilitando o controle de estoque.Inclui funcionalidades como exportação para CSV, busca e filtragem de produtos. Sistema totalmente responsivo, adaptando-se a desktops e dispositivos móveis. Não requer cadastro nem backend, permitindo que qualquer usuário utilize o sistema imediatamente. Foco em usabilidade e experiência real, ideal para pequenas lojas e lojistas que querem organizar o estoque de forma prática.',
     title: 'Estoky',
-    coverImageIsSquare: true,
+
     btnText: 'Acessar o site',
     href: 'https://estoky-one.vercel.app',
     techs: ['React', 'NextJS', 'SEO', 'CSS', 'Javascript', 'Typescript'],
@@ -77,7 +78,7 @@ export const projects: Project[] = [
     description:
       'O find-process é um aplicativo que desenvolvi pra resolver um problema pra mim e então decidi liberar ele pra uso geral. O problema em questão se refere a identificar processos que estão rodando em uma determinada porta, e então encerrar esses processos. Eu sempre tinha que digitar comandos no terminal para listar processos e para encerrá-los, agora com o aplicativo isso se tornou bem trivial de tão fácil. Fiz uso da meu framework Megalodonte para criação rápida do app.',
     title: 'Find-Process',
-    coverImageIsSquare: false,
+
     btnText: 'Baixar aplicativo (Windows)',
     href: 'https://github.com/eliezer-dev-software-enginner/find-process/releases/download/release/find-process-1.0.0.msi',
     techs: ['JavaFX', 'Java', 'Windows', 'Desktop', 'Ferramenta'],
@@ -90,7 +91,7 @@ export const projects: Project[] = [
     description:
       'Realtec Processador é um aplicativo que desenvolvi para o teste seletivo da empresa Realtec. O candidato deveria criar uma solução em sua linguagem/tecnologia de sua preferência que permitissse ao usuário entrar com um CSV contendo os seguintes dados: data;conta;tipo;valor;descrição.Deveria calcular o saldo final por conta. Calcular totais de créditos, débitos e quantidade de lançamentos. Processar os registros na ordem do arquivo e registrar inconsistências quando o saldo ficar negativo em qualquer momento do processamento.',
     title: 'Realtec Processador',
-    coverImageIsSquare: false,
+
     btnText: 'Assistir minha apresentação',
     href: 'https://youtu.be/rhrxS9Da0To',
     techs: ['JavaFX', 'Java', 'Windows', 'Desktop', 'CSV'],
@@ -132,7 +133,7 @@ export const projects: Project[] = [
     description:
       'Este canal no Telegram fornece as noticias atualizadas do G1 a cada 3 horas, para realizar esse feito, tenho um script feito em python que busca as noticias diretamente do site e as encaminha para o canal totalmente automatizado.',
     title: 'G1 - Noticias Oficiais do g1',
-    coverImageIsSquare: true,
+
     btnText: 'Acessar o canal',
     href: 'https://t.me/noticiasg1',
     techs: ['Python'],
@@ -144,7 +145,7 @@ export const projects: Project[] = [
     description:
       'Bot construido com python usando a biblioteca python-telegram-bot. O bot fica rodando localmente sem a necessidade de rodar em um servidor externo. Sobre o funcionamento é bem simples, basta o usuario conversar com o bot fornecendo um dominio e o bot responde indicando se o dominio está disponível ou não.',
     title: 'Bot Buscador de dominio',
-    coverImageIsSquare: true,
+
     btnText: 'Acessar o bot',
     href: 'https://web.telegram.org/k/#@buscador_de_dominio_bot',
     techs: ['Python'],
@@ -157,7 +158,7 @@ export const projects: Project[] = [
     description:
       'Toolset open-source que entrega tudo que é necessário para o desenvolvimento rápido de aplicativos desktop usando o Framework JavaFX. Esse toolset contém scripts automatizados para inclusive gerar o .exe e .msi da aplicação, prontos para produção.',
     title: 'Coesion JavaFX',
-    coverImageIsSquare: true,
+
     btnText: 'Acessar a ferramenta',
     href: 'https://github.com/eliezerBrasilian/Coesion-JavaFX',
     techs: ['JavaFX', 'JAVA', 'CSS', 'Maven'],
@@ -219,5 +220,23 @@ export const techs = [
   {
     src: reactnative,
     alt: 'React Native',
+  },
+];
+
+export const certificates: Certificate[] = [
+  {
+    title: 'Dominando Banco de Dados com MySQL (Hcode)',
+    urlSource:
+      'https://drive.google.com/file/d/13LrM2aqGEq40i3Z5dbSnI_vtyWaWOGrP/view?pli=1',
+  },
+  {
+    title: 'MODELAGEM DE DADOS (Fundação Bradesco)',
+    urlSource:
+      'https://drive.google.com/file/d/10HiqxVvEQYJvlO-Bl8_DtF5wG0-wv7EZ/view',
+  },
+  {
+    title: 'JAVASCRIPT - DOM (OneBitCode)',
+    urlSource:
+      'https://drive.google.com/file/d/1iCNvJ-s2nwiD6W4YEpmrGMD_qDutkjsS/view',
   },
 ];

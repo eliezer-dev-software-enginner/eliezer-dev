@@ -1,7 +1,8 @@
-import { projects, techs } from './data';
+import { projects, techs, certificates } from './data';
 
 import Image from 'next/image';
 import CardProjectComponent from './components/CardProjectComponent';
+import CardCertificateComponent from './components/CardCertificateComponent';
 import RoundedImageComponent from './components/RoundedImageComponent';
 import s from './styles/Home.module.css';
 
@@ -79,6 +80,29 @@ export default function Home() {
             }}
           >
             <i className='fab fa-linkedin'></i> LinkedIn
+          </a>
+
+          <a
+            href='https://github.com/eliezer-dev-software-enginner'
+            target='_blank'
+            rel='noopener noreferrer'
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '12px 24px',
+              background: 'transparent',
+              color: 'var(--ink)',
+              fontFamily: 'var(--font-sans)',
+              fontSize: '0.9rem',
+              fontWeight: 600,
+              letterSpacing: '0.03em',
+              borderRadius: 'var(--radius-md)',
+              border: '1px solid var(--border-strong)',
+              transition: 'all 0.2s ease',
+            }}
+          >
+            <i className='fab fa-github'></i> GitHub
           </a>
 
           <a
@@ -195,6 +219,36 @@ export default function Home() {
               btnText={v.btnText}
               href={v.href}
               techs={v.techs}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* ========================
+          CERTIFICATES SECTION
+          ======================== */}
+      <section
+        style={{ width: '100%', paddingTop: '0.5rem', paddingBottom: '2rem' }}
+      >
+        <h2 className={s.projectsSectionTitle}>
+          Certificados <em>obtidos</em>
+        </h2>
+        <p className={s.projectsSectionSubtitle}>
+          Cursos e certificações que complementam minha formação.
+        </p>
+
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+            gap: '1.25rem',
+          }}
+        >
+          {certificates.map((v, i) => (
+            <CardCertificateComponent
+              key={i}
+              title={v.title}
+              urlSource={v.urlSource}
             />
           ))}
         </div>

@@ -392,3 +392,55 @@
 .cardButton:hover {
   background: var(--accent);
 }
+
+/* Certificates */
+.certContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1.25rem;
+  gap: 0.75rem;
+}
+
+.certIcon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-light);
+  color: var(--accent);
+  border-radius: var(--radius-lg);
+  font-size: 1.2rem;
+}
+
+.certTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.certLink {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-pill);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.certLink:hover {
+  background: var(--accent);
+  color: white;
+}
