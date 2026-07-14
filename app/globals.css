@@ -1,52 +1,56 @@
 @import 'tailwindcss';
 
 :root {
-  /* === PALETTE: Artist Atelier === */
-  --cream: #f5f0e8;
-  --cream-dark: #ede6d6;
-  --ink: #1a1410;
-  --ink-light: #3d2f22;
-  --ink-muted: #7a6a58;
-  --ink-faint: #b8a898;
+  /* === PALETTE: Deep Blue Palette (Refinada) === */
+  --ink: #021024; /* Escuro para títulos */
+  --ink-light: #052659; /* Cor secundária para texto */
+  --ink-muted: #5483b3; /* Cor para corpo de texto/detalhes */
+  --ink-faint: #7da0c4; /* Cor clara para bordas/ícones */
 
-  /* Accent - warm terracotta / burnt sienna */
-  --accent: #c8522a;
-  --accent-hover: #a63e1c;
-  --accent-light: #f2e0d8;
-  --accent-glow: rgba(200, 82, 42, 0.15);
+  /* Accent - Mantendo sua identidade de destaque */
+  --accent: #5483b3;
+  --accent-hover: #052659;
+  --accent-light: #c1e8ff;
+  --accent-glow: rgba(84, 131, 179, 0.15);
 
-  /* Secondary accent - deep indigo ink */
-  --indigo-ink: #2e3a6e;
-  --indigo-light: #dde2f5;
-
-  /* Surfaces */
-  --background: var(--cream);
-  --foreground: var(--ink);
-  --surface: #faf7f2;
+  /* BACKGROUNDS (Aqui está a mudança) */
+  --background: #f8fafc; /* Um tom de azul extremamente claro (quase branco) */
+  --surface: #ffffff;
   --surface-raised: #ffffff;
-  --border: rgba(122, 106, 88, 0.2);
-  --border-strong: rgba(122, 106, 88, 0.4);
 
-  /* Typography */
+  /* Borders */
+  --border: rgba(2, 16, 36, 0.1);
+  --border-strong: rgba(2, 16, 36, 0.2);
+
+  /* Typography (Mantidas) */
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body: 'Source Serif 4', 'Georgia', serif;
   --font-sans: 'DM Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Spacing rhythm */
+  /* Spacing e Shadows (Mantidos) */
   --section-gap: 5rem;
   --container-pad: clamp(1.5rem, 5vw, 4rem);
+  --shadow-soft: 0 2px 20px rgba(2, 16, 36, 0.06);
+  --shadow-card: 0 4px 32px rgba(2, 16, 36, 0.1);
+  --shadow-accent: 0 8px 40px rgba(125, 160, 196, 0.2);
 
-  /* Shadows */
-  --shadow-soft: 0 2px 20px rgba(26, 20, 16, 0.06);
-  --shadow-card: 0 4px 32px rgba(26, 20, 16, 0.1);
-  --shadow-accent: 0 8px 40px rgba(200, 82, 42, 0.2);
-
-  /* Borders */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
   --radius-pill: 999px;
+}
+
+/* === AJUSTES DE ELEMENTOS ESPECÍFICOS === */
+
+::-webkit-scrollbar-thumb {
+  background: var(--ink-light);
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-light);
+  color: var(--ink);
 }
 
 /* === RESET & BASE === */
@@ -98,7 +102,7 @@ a {
 /* === SELECTION === */
 ::selection {
   background: var(--accent-light);
-  color: var(--accent);
+  color: var(--ink);
 }
 
 /* === SCROLLBAR === */
@@ -106,10 +110,10 @@ a {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--cream-dark);
+  background: var(--accent-light);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--accent);
+  background: var(--ink-light);
   border-radius: var(--radius-pill);
 }
 
@@ -202,15 +206,8 @@ a {
 }
 
 .art-divider::before {
-  content: '✦';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   background: var(--background);
-  padding: 0 1rem;
-  color: var(--accent);
-  font-size: 12px;
+  color: var(--ink-faint);
 }
 
 /* === NOISE TEXTURE OVERLAY (subtle paper feel) === */

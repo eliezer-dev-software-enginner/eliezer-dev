@@ -19,12 +19,12 @@ export default function Home() {
 
         {/* Eyebrow */}
         <p className={`${s.eyebrow} fade-up fade-up-1`}>
-          Engenheiro de Software
+          Engenheiro de Software Fullstack
         </p>
 
         {/* Main Title */}
         <h1 className={`${s.title} fade-up fade-up-2`}>
-          Código é <em>arte</em>.
+          Eu sou a <em>solução</em>.
         </h1>
 
         {/* Subtitle */}
@@ -39,13 +39,20 @@ export default function Home() {
 
         {/* Description */}
         <p className={`${s.description} fade-up fade-up-3`}>
-          Há mais de 6 anos transformo ideias em experiências digitais usando{' '}
-          <strong>React</strong> e ecossistema moderno de frontend. Tenho
-          experiência sólida em integrações com APIs, Firebase, testes com Jest
-          e depuração de código — sempre com atenção à qualidade e à experiência
-          do usuário. Atualmente aprofundando expertise em{' '}
-          <strong>Next.js</strong>. Acredito que cada linha de código bem
-          escrita é uma forma de arte.
+          Há mais de 6 anos transformo ideias em aplicações reais
+          independentemente da tecnologia; Seja atuando como freelance ou
+          criando minhas próprias ferramentas. Ainda duvida? Vem conhecer o{' '}
+          <strong>Plics SW</strong>, este é um aplicativo de gestão{' '}
+          <strong>ERP</strong> que eu desenvolvi pra ajudar pequenos negócios a
+          ter um aplicativo seguro, rápido e super fácil de usar.{' '}
+          <strong>Tenho clientes</strong> nele, feedbacks e sempre estou dando
+          suporte. Construí uma rede de apoio ao redor dele, tudo sem gastar 1
+          centavo sequer. Postagens orgânicas e com IA, canal no Youtube,
+          comunidades no reddit, canal no Pinterest e etc... O que eu quero
+          dizer com isso? Eu quero dizer que eu entendo todo o fluxo de uma
+          aplicação, desde o desenvolvimento até o engajamento e divulgação,{' '}
+          <strong>eu sei o que funciona</strong> e o que não funciona! Vamos
+          juntos transformar o seu negócio.
         </p>
 
         {/* CTA Buttons */}
@@ -59,7 +66,7 @@ export default function Home() {
               alignItems: 'center',
               gap: '8px',
               padding: '12px 24px',
-              background: 'var(--indigo-ink)',
+              background: 'var(--ink)',
               color: '#fff',
               fontFamily: 'var(--font-sans)',
               fontSize: '0.9rem',
@@ -108,7 +115,7 @@ export default function Home() {
               gap: '8px',
               padding: '12px 24px',
               background: 'transparent',
-              color: 'var(--ink)',
+              color: 'var(--ink-light)',
               fontFamily: 'var(--font-sans)',
               fontSize: '0.9rem',
               fontWeight: 600,
@@ -132,7 +139,10 @@ export default function Home() {
       <section className={s.section} style={{ paddingTop: '3.5rem' }}>
         <div>
           <h2 className={s.sectionTitle}>Minhas ferramentas</h2>
-          <p className={s.sectionSubtitle}>As tintas do meu ateliê digital</p>
+          <p className={s.sectionSubtitle}>
+            Tecnologias que utilizo, nem sempre uso todas. Umas eu gosto mais,
+            outras nem tanto
+          </p>
 
           <div className={s.tecnologias_container}>
             {techs.map((v, i) => (
@@ -172,6 +182,7 @@ export default function Home() {
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
             gap: '1.75rem',
+            alignItems: 'start',
           }}
         >
           {projects.map((v, i) => (
@@ -213,7 +224,7 @@ export default function Home() {
         <p
           style={{ marginTop: '4px', fontSize: '0.78rem', fontStyle: 'italic' }}
         >
-          &ldquo;Programar é a minha arte.&rdquo;
+          &ldquo;Desenvolvendo soluções reais.&rdquo;
         </p>
       </footer>
     </div>

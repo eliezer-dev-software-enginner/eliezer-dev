@@ -3,18 +3,19 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Eliezer Dev — Programação como Arte',
+  title: 'Eliezer Dev — Criador de soluções confiáveis reais.',
   description:
-    'Programar é a minha arte. Engenheiro de software com mais de 6 anos criando aplicações web com React e Next.js.',
+    'Engenheiro de software que resolve o problema, e que usa IA como aliada não como muleta. Desenvolvedor com mais de 6 anos criando aplicações confiáveis e seguras.',
   keywords:
     'Desenvolvedor Web, Desenvolvedor Frontend, Desenvolvedor React, Engenheiro de Software, Portfólio, Next.js, JavaScript, TypeScript, Eliezer, Eliezer Dev, Eliezer Software Enginner, Programador Fullstack, Programador Web, Freelancer',
   authors: [{ name: 'Eliezer Assunção de Paulo' }],
   openGraph: {
     type: 'website',
     siteName: 'Eliezer Dev',
-    title: 'Eliezer Dev — Programação como Arte',
+    title: 'Eliezer Dev — Criador de soluções confiáveis reais.',
     description:
-      'Engenheiro de software que trata código como expressão artística.',
+      'Engenheiro de software que resolve o problema, e que usa IA como aliada não como muleta. Desenvolvedor com mais de 6 anos criando aplicações confiáveis e seguras.',
+    images: 'https://avatars.githubusercontent.com/u/93846923?v=4',
   },
 };
 

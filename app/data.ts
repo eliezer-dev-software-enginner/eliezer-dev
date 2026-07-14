@@ -10,8 +10,8 @@ import jest from './assets/icons8-jest-96.png';
 import postgresql from './assets/icons8-postgresql-96.png';
 import java from './assets/java.png';
 import javafx from './assets/java.webp';
+import plicssw from './assets/mulher-usando-pdv.webp';
 import node from './assets/nodejs.png';
-import plicssw from './assets/plics-home.png';
 import plicsswsite from './assets/plics-sw-landing-page.png';
 import reactnative from './assets/react-native.png';
 import react from './assets/react.png';
@@ -23,6 +23,29 @@ import { Project } from './components/CardProjectComponent';
 //import kubernetes from "assets/kubernetes.png";
 
 export const projects: Project[] = [
+  {
+    cover: plicsswsite,
+    coverAlt: 'Imagem de fundo do website Plics SW',
+    description:
+      'Landing page para compra do aplicativo de ERP (Plics SW), ela é uma landing page minimalista e profissional listando os benefícios e as vantagens do sistema, ela foi construída com NextJS e o gateway de pagamento que utilizei foi o Mercado Pago, pois já sou acostumado com ele e a propósito como a proposta da landing page é ser minimalista então só é possível pagamento com PIX. Após pagamento bem sucedido, o usuário recebe sua chave de ativação e links de download dos aplicativos tanto para Linux quanto para Windows. ',
+    title: 'Plics SW - Site oficial',
+    btnText: 'Acessar o site',
+    href: 'https://plics-sw-webpage.vercel.app/',
+    techs: ['React', 'Typescript', 'CSS', 'Mercado Pago', 'Next.js'],
+  },
+  {
+    cover: plicssw,
+    coverAlt:
+      'Imagem de fundo do coesion javafx - Toolset com diversas ferramentas integradas para agilizar o desenvolvimento de aplicativos desktop',
+    description:
+      'Plics SW é um aplicativo ERP, desktop e offline para pequenos estabelecimentos. Ele está disponível para Windows e para Linux. Ele possui opções de gerenciamento de estoque, financeiro, clientes e ordem de serviço. Para o desenvlvimento fiz uso do meu framework Megalodonte que é um wrapper sobre o JavaFX (framework java para criação de aplicativos desktop multiplataforma). O aplicativo usa SQlite para persistência.',
+    title: 'Plics SW - Aplicativo Desktop',
+    coverImageIsSquare: false,
+    btnText: 'Baixar aplicativo (Windows E Linux)',
+    href: 'https://github.com/eliezer-dev-software-enginner/plics-sw/releases',
+    techs: ['JavaFX', 'Java', 'Windows', 'Desktop', 'ERP', 'Linux', 'SQLite'],
+  },
+
   {
     cover: estoky,
     coverAlt:
@@ -37,17 +60,6 @@ export const projects: Project[] = [
   },
 
   {
-    cover: plicsswsite,
-    coverAlt: 'Imagem de fundo do website Plics SW',
-    description:
-      'Landing page para compra do aplicativo de ERP (Plics SW), ela é uma landing page minimalista e profissional listando os benefícios e as vantagens do sistema, ela foi construída com NextJS e o gateway de pagamento que utilizei foi o Mercado Pago, pois já sou acostumado com ele e a propósito como a proposta da landing page é ser minimalista então só é possível pagamento com PIX. Após pagamento bem sucedido, o usuário recebe sua chave de ativação e links de download dos aplicativos tanto para Linux quanto para Windows. ',
-    title: 'Plics SW - Site oficial',
-    btnText: 'Acessar o site',
-    href: 'https://plics-sw-webpage.vercel.app/',
-    techs: ['React', 'Typescript', 'CSS', 'Mercado Pago', 'Next.js'],
-  },
-
-  {
     cover: gerar_v2_cover,
     coverAlt: 'Imagem de fundo de requisição feita para o backend',
     description:
@@ -56,19 +68,6 @@ export const projects: Project[] = [
     btnText: 'Assistir funcionamento',
     href: 'https://www.linkedin.com/posts/eliezersoftwareenginner_vagas-ia-desenvolvedor-activity-7435000476271763456-ba-1?utm_source=share&utm_medium=member_desktop&rcm=ACoAADk2kUsBzm-Car7e9AYeGn6Fydi7QyEHOBI',
     techs: ['Node.js', 'Typescript', 'Docker', 'IA', 'Gemini', 'Grok'],
-  },
-
-  {
-    cover: plicssw,
-    coverAlt:
-      'Imagem de fundo do coesion javafx - Toolset com diversas ferramentas integradas para agilizar o desenvolvimento de aplicativos desktop',
-    description:
-      'Plics SW é um aplicativo ERP, desktop e offline para pequenos estabelecimentos. Ele está disponível para Windows e para Linux. Ele possui opções de gerenciamento de estoque, financeiro, clientes e ordem de serviço. Para o desenvlvimento fiz uso do meu framework Megalodonte que é um wrapper sobre o JavaFX (framework java para criação de aplicativos desktop multiplataforma). O aplicativo usa SQlite para persistência.',
-    title: 'Plics SW - Aplicativo Desktop',
-    coverImageIsSquare: false,
-    btnText: 'Baixar aplicativo (Windows E Linux)',
-    href: 'https://github.com/eliezer-dev-software-enginner/plics-sw/releases/tag/v1.0.0',
-    techs: ['JavaFX', 'Java', 'Windows', 'Desktop', 'ERP', 'Linux', 'SQLite'],
   },
 
   {
