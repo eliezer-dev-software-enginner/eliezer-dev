@@ -244,4 +244,10 @@ export const certificates: Certificate[] = [
     urlSource:
       'https://udemy-certificate.s3.amazonaws.com/pdf/UC-0fa2c887-52c7-418d-80dc-fcdf4edf0acc.pdf',
   },
+  {
+    title:
+      'Desenvolvimento Android em Java e Kotlin (Marco Aurelio Dias de Oliveira)',
+    urlSource:
+      'https://udemy-certificate.s3.amazonaws.com/pdf/UC-d5c1ee03-0522-4b45-a9d0-0b4ec583e1eb.pdf',
+  },
 ];
