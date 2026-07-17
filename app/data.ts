@@ -239,4 +239,9 @@ export const certificates: Certificate[] = [
     urlSource:
       'https://drive.google.com/file/d/1iCNvJ-s2nwiD6W4YEpmrGMD_qDutkjsS/view',
   },
+  {
+    title: 'JavaFX Master Class: Create A Banking Application',
+    urlSource:
+      'https://udemy-certificate.s3.amazonaws.com/pdf/UC-0fa2c887-52c7-418d-80dc-fcdf4edf0acc.pdf',
+  },
 ];
