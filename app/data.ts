@@ -250,4 +250,15 @@ export const certificates: Certificate[] = [
     urlSource:
       'https://udemy-certificate.s3.amazonaws.com/pdf/UC-d5c1ee03-0522-4b45-a9d0-0b4ec583e1eb.pdf',
   },
+  {
+    title:
+      'Kotlin Android App Development: Firebase Firestore, Hilt & Dagger, ROOM DB, ViewModel, Navigation & Clean Architecture (Paulo Dichone)',
+    urlSource:
+      'https://udemy-certificate.s3.amazonaws.com/pdf/UC-5372de66-f47f-4063-ab63-4a2ea956d92b.pdf',
+  },
+  {
+    title: 'Formação Node.js (Guia do programador)',
+    urlSource:
+      'https://udemy-certificate.s3.amazonaws.com/pdf/UC-7a3cdb30-5cb7-431f-8aed-4ce965165194.pdf',
+  },
 ];
