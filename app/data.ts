@@ -25,6 +25,76 @@ import { Project } from './components/CardProjectComponent';
 
 export const projects: Project[] = [
   {
+    cover: '/project-covers/advpl-testlab.svg',
+    coverAlt: 'Capa do AdvPL TestLab com terminal e fluxo de testes',
+    description:
+      'Ambiente de simulação e testes para executar fontes AdvPL reais com fixtures JSON ou JSONC, sem depender de AppServer, licença ou banco de dados. A CLI descobre funções de entrada, valida o código antes da execução e simula recursos do Protheus, incluindo ambiente, tabelas, diálogos e persistência controlada.',
+    title: 'AdvPL TestLab',
+    btnText: 'Ver código e documentação',
+    href: 'https://github.com/eliezer-dev-software-enginner/advpl-testlab',
+    techs: ['Python', 'AdvPL', 'CLI', 'Testes', 'TOTVS Protheus'],
+  },
+  {
+    cover: '/project-covers/protheus-mega-brain.svg',
+    coverAlt: 'Capa do Protheus Mega Brain com estruturas de dados e automação',
+    description:
+      'Ferramenta local para acelerar tarefas do ecossistema TOTVS Protheus. Gera campos SX3, gatilhos SX7, expressões ADVPL, fixtures compatíveis com o AdvPL TestLab e estruturas MVC com FWMBrowse, ModelDef e ViewDef. Funciona direto no navegador e salva as configurações localmente.',
+    title: 'Protheus Mega Brain',
+    btnText: 'Ver projeto no GitHub',
+    href: 'https://github.com/eliezer-dev-software-enginner/protheus-mega-brain',
+    techs: ['AdvPL', 'JavaScript', 'HTML', 'CSS', 'TOTVS Protheus'],
+  },
+  {
+    cover: '/project-covers/megalodonte.svg',
+    coverAlt: 'Capa do ecossistema Megalodonte com módulos conectados',
+    description:
+      'Framework modular para criar aplicações JavaFX com uma abordagem declarativa e reativa inspirada no React. O ecossistema reúne bibliotecas de base, componentes, estado reativo, roteamento e temas, além de aplicações de exemplo que documentam cada parte da API.',
+    title: 'Framework Megalodonte',
+    btnText: 'Explorar o ecossistema',
+    href: 'https://github.com/eliezer-dev-software-enginner/megalodonte-ecossystem',
+    techs: ['Java', 'JavaFX', 'Reatividade', 'Gradle', 'Open Source'],
+  },
+  {
+    cover: '/project-covers/raspa-empresas.svg',
+    coverAlt: 'Capa do Raspa Empresas com pipeline de microserviços',
+    description:
+      'Pipeline distribuído que coleta contatos corporativos, limpa e valida os dados e automatiza o envio de currículos via WhatsApp. A solução combina microserviços em Python e Spring Boot, filas RabbitMQ, PostgreSQL, Playwright, Evolution API e infraestrutura Docker compartilhada.',
+    title: 'Raspa Empresas',
+    btnText: 'Ver arquitetura',
+    href: 'https://github.com/eliezer-dev-software-enginner/raspa-empresas',
+    techs: ['Python', 'Spring Boot', 'RabbitMQ', 'PostgreSQL', 'Docker'],
+  },
+  {
+    cover: '/project-covers/comanda-real.svg',
+    coverAlt: 'Capa do Comanda Real com painel de pedidos e pagamentos',
+    description:
+      'Sistema web de comandas e operação de estabelecimentos, com aplicação autenticada em Vue e landing page prerenderizada em Nuxt para melhorar SEO e carregamento. Inclui Firebase, testes com Vitest, geração de documentos, impressão térmica e integração de pagamentos PIX.',
+    title: 'Comanda Real',
+    btnText: 'Ver projeto no GitHub',
+    href: 'https://github.com/eliezer-dev-software-enginner/comanda-real',
+    techs: ['Vue', 'Nuxt', 'TypeScript', 'Firebase', 'Vitest'],
+  },
+  {
+    cover: '/project-covers/scene2d-builder.svg',
+    coverAlt: 'Capa do Scene2D UI Builder com canvas visual de interface',
+    description:
+      'Editor visual WYSIWYG para criar interfaces de jogos com libGDX Scene2D. Permite arrastar componentes para o canvas, redimensionar, alinhar, ancorar elementos e exportar um layout JSON autocontido. Uma biblioteca complementar carrega o arquivo diretamente no jogo.',
+    title: 'Scene2D UI Builder',
+    btnText: 'Conhecer a ferramenta',
+    href: 'https://github.com/eliezer-dev-software-enginner/scene2d-ui-builder',
+    techs: ['Java', 'libGDX', 'Scene2D', 'Gradle', 'WYSIWYG'],
+  },
+  {
+    cover: '/project-covers/tcp-file-pusher.svg',
+    coverAlt: 'Capa do TCP File Pusher com transferência entre dispositivos',
+    description:
+      'Aplicativo desktop para enviar arquivos a dispositivos pela rede com fluxo visual, acompanhamento de progresso e mensagens de erro claras. Foi pensado para rotinas repetíveis de desenvolvimento, testes e atualização de equipamentos, mantendo operações demoradas fora da thread da interface.',
+    title: 'TCP File Pusher',
+    btnText: 'Ver projeto no GitHub',
+    href: 'https://github.com/eliezer-dev-software-enginner/ftp-file-pusher',
+    techs: ['Java', 'JavaFX', 'TCP', 'Gradle', 'Desktop'],
+  },
+  {
     cover: plicsswsite,
     coverAlt: 'Imagem de fundo do website Plics SW',
     description:

@@ -3,18 +3,18 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Eliezer Dev — Criador de soluções confiáveis reais.',
+  title: 'Eliezer Dev | Analista Desenvolvedor Pleno + IA',
   description:
-    'Engenheiro de software que resolve o problema, e que usa IA como aliada não como muleta. Desenvolvedor com mais de 6 anos criando aplicações confiáveis e seguras.',
+    'Portfólio de Eliezer Assunção de Paulo, Analista Desenvolvedor Pleno + IA com experiência em Java, Spring Boot, TypeScript, React, automação e produtos de software.',
   keywords:
-    'Desenvolvedor Web, Desenvolvedor Frontend, Desenvolvedor React, Engenheiro de Software, Portfólio, Next.js, JavaScript, TypeScript, Eliezer, Eliezer Dev, Eliezer Software Enginner, Programador Fullstack, Programador Web, Freelancer',
+    'Analista Desenvolvedor Pleno, Inteligência Artificial, Desenvolvedor Java, Spring Boot, React, TypeScript, TOTVS Protheus, AdvPL, Engenheiro de Software, Portfólio, Eliezer Dev',
   authors: [{ name: 'Eliezer Assunção de Paulo' }],
   openGraph: {
     type: 'website',
     siteName: 'Eliezer Dev',
-    title: 'Eliezer Dev — Criador de soluções confiáveis reais.',
+    title: 'Eliezer Dev | Analista Desenvolvedor Pleno + IA',
     description:
-      'Engenheiro de software que resolve o problema, e que usa IA como aliada não como muleta. Desenvolvedor com mais de 6 anos criando aplicações confiáveis e seguras.',
+      'Software de ponta a ponta com Java, web, automação e inteligência artificial aplicada ao produto.',
     images: 'https://avatars.githubusercontent.com/u/93846923?v=4',
   },
 };

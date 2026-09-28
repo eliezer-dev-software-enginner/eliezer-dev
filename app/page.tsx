@@ -20,17 +20,17 @@ export default function Home() {
 
         {/* Eyebrow */}
         <p className={`${s.eyebrow} fade-up fade-up-1`}>
-          Engenheiro de Software Fullstack
+          Analista Desenvolvedor Pleno + IA
         </p>
 
         {/* Main Title */}
         <h1 className={`${s.title} fade-up fade-up-2`}>
-          Eu sou a <em>solução</em>.
+          Software que resolve <em>problemas reais</em>.
         </h1>
 
         {/* Subtitle */}
         <h2 className={`${s.subtitle} fade-up fade-up-2`}>
-          Curioso, criador e apaixonado pelo que faz.
+          Java, web, automação e inteligência artificial aplicada ao produto.
         </h2>
 
         {/* Greeting */}
@@ -40,20 +40,14 @@ export default function Home() {
 
         {/* Description */}
         <p className={`${s.description} fade-up fade-up-3`}>
-          Há mais de 6 anos transformo ideias em aplicações reais
-          independentemente da tecnologia; Seja atuando como freelance ou
-          criando minhas próprias ferramentas. Ainda duvida? Vem conhecer o{' '}
-          <strong>Plics SW</strong>, este é um aplicativo de gestão{' '}
-          <strong>ERP</strong> que eu desenvolvi pra ajudar pequenos negócios a
-          ter um aplicativo seguro, rápido e super fácil de usar.{' '}
-          <strong>Tenho clientes</strong> nele, feedbacks e sempre estou dando
-          suporte. Construí uma rede de apoio ao redor dele, tudo sem gastar 1
-          centavo sequer. Postagens orgânicas e com IA, canal no Youtube,
-          comunidades no reddit, canal no Pinterest e etc... O que eu quero
-          dizer com isso? Eu quero dizer que eu entendo todo o fluxo de uma
-          aplicação, desde o desenvolvimento até o engajamento e divulgação,{' '}
-          <strong>eu sei o que funciona</strong> e o que não funciona! Vamos
-          juntos transformar o seu negócio.
+          Desenvolvo produtos de ponta a ponta há mais de 6 anos, combinando
+          engenharia de software, visão de negócio e IA como aceleradora. Minha
+          experiência passa por ERP, integrações bancárias, aplicações web e
+          desktop, automação, ferramentas para desenvolvedores e ecossistemas
+          open source. No <strong>Plics SW</strong>, por exemplo, conduzo desde a
+          arquitetura e o desenvolvimento até a distribuição e o suporte a
+          clientes. Busco transformar problemas concretos em software simples,
+          testável e pronto para uso.
         </p>
 
         {/* CTA Buttons */}
@@ -106,7 +100,7 @@ export default function Home() {
           </a>
 
           <a
-            href='https://wa.link/2gsv2z'
+            href='/curriculo-eliezer-assuncao.pdf'
             target='_blank'
             rel='noopener noreferrer'
             style={{
@@ -124,6 +118,29 @@ export default function Home() {
               border: '1px solid transparent',
               transition: 'all 0.2s ease',
               boxShadow: 'var(--shadow-accent)',
+            }}
+          >
+            <i className='fas fa-file-arrow-down'></i> Currículo
+          </a>
+
+          <a
+            href='https://wa.link/2gsv2z'
+            target='_blank'
+            rel='noopener noreferrer'
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '12px 24px',
+              background: 'transparent',
+              color: 'var(--ink)',
+              fontFamily: 'var(--font-sans)',
+              fontSize: '0.9rem',
+              fontWeight: 600,
+              letterSpacing: '0.03em',
+              borderRadius: 'var(--radius-md)',
+              border: '1px solid var(--border-strong)',
+              transition: 'all 0.2s ease',
             }}
           >
             <i className='fab fa-whatsapp'></i> WhatsApp
@@ -164,8 +181,8 @@ export default function Home() {
         <div>
           <h2 className={s.sectionTitle}>Minhas ferramentas</h2>
           <p className={s.sectionSubtitle}>
-            Tecnologias que utilizo, nem sempre uso todas. Umas eu gosto mais,
-            outras nem tanto
+            Tecnologias que aplico conforme o problema, a arquitetura e o
+            contexto do produto.
           </p>
 
           <div className={s.tecnologias_container}>
@@ -198,7 +215,8 @@ export default function Home() {
           Obras <em>que criei</em>
         </h2>
         <p className={s.projectsSectionSubtitle}>
-          Ferramentas reais, rodando no ar — cada uma tem uma história.
+          Produtos, ferramentas e experimentos de engenharia com código,
+          documentação e contexto de uso.
         </p>
 
         <div
