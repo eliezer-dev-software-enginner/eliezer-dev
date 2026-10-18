@@ -15,7 +15,7 @@ export type PolicySection = {
   links?: PolicyLink[];
 };
 
-export const POLICY_UPDATED_AT = '28 de julho de 2026';
+export const POLICY_UPDATED_AT = '18 de outubro de 2026';
 
 export const POLICY_LEAD = [
   'A sua privacidade é importante para nós. Esta Política de Privacidade explica como o Plics SW coleta, utiliza, armazena e protege as informações dos usuários.',
@@ -45,8 +45,6 @@ export const policySections: PolicySection[] = [
     items: [
       'Nome do usuário;',
       'Endereço de e-mail;',
-      'Informações da licença do software;',
-      'Identificador do dispositivo para validação da licença;',
       'Informações técnicas do aplicativo (versão instalada, sistema operacional e registros de erros);',
       'Dados necessários para atualização do aplicativo.',
     ],
@@ -79,7 +77,6 @@ export const policySections: PolicySection[] = [
     title: 'Como utilizamos as informações',
     paragraphs: ['As informações coletadas podem ser utilizadas para:'],
     items: [
-      'Validar a licença do software;',
       'Disponibilizar atualizações;',
       'Melhorar a estabilidade do aplicativo;',
       'Corrigir erros;',
@@ -126,7 +123,6 @@ export const policySections: PolicySection[] = [
     title: 'Serviços de terceiros',
     paragraphs: ['O aplicativo poderá utilizar serviços de terceiros para funcionalidades específicas, como:'],
     items: [
-      'Verificação de licença;',
       'Distribuição de atualizações;',
       'Armazenamento de registros de erros;',
       'Suporte ao usuário.',
@@ -165,7 +161,7 @@ export const policySections: PolicySection[] = [
         href: 'mailto:eliezerassuncaocustodio@hotmail.com',
       },
       {
-        label: 'plics-sw-webpage.vercel.app',
+        label: 'Site do Plics SW',
         href: '/solucoes/plics-sw',
       },
     ],

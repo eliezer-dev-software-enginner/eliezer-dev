@@ -1,4 +1,4 @@
-import { getPayment, grantUserAccess, updatePaymentStatus } from '@/app/solucoes/plics-sw/lib/db';
+import { getPayment, updatePaymentStatus } from '@/app/solucoes/plics-sw/lib/db';
 
 import { getPixService } from '@/app/solucoes/plics-sw/lib/pixConfig';
 import { fulfillInstagramFollowersOrder } from '@/app/solucoes/plics-sw/lib/smmFulfillment';
@@ -80,10 +80,6 @@ export async function POST(req: Request) {
 
       if (paymentData.product === 'instagram-followers') {
         await fulfillInstagramFollowersOrder(paymentIdStr);
-      } else {
-        if (paymentData.userId) {
-          await grantUserAccess(paymentData.userId, paymentIdStr);
-        }
       }
     }
 

@@ -98,11 +98,11 @@ export const projects: Project[] = [
     cover: plicsswsite,
     coverAlt: 'Imagem de fundo do website Plics SW',
     description:
-      'Landing page para compra do aplicativo de ERP (Plics SW), ela é uma landing page minimalista e profissional listando os benefícios e as vantagens do sistema, ela foi construída com NextJS e o gateway de pagamento que utilizei foi o Mercado Pago, pois já sou acostumado com ele e a propósito como a proposta da landing page é ser minimalista então só é possível pagamento com PIX. Após pagamento bem sucedido, o usuário recebe sua chave de ativação e links de download dos aplicativos tanto para Linux quanto para Windows. ',
+      'Site oficial do Plics SW, um ERP desktop gratuito para Windows e Linux. Apresenta os recursos do sistema e oferece download direto dos instaladores, sem compra ou chave de licença.',
     title: 'Plics SW - Site oficial',
     btnText: 'Acessar o site',
     href: '/solucoes/plics-sw',
-    techs: ['React', 'Typescript', 'CSS', 'Mercado Pago', 'Next.js'],
+    techs: ['React', 'Typescript', 'CSS', 'Next.js'],
   },
   {
     cover: plicssw,

@@ -244,3 +244,9 @@ Renomear a rota `/comprar-inscritos-instagram` para `/impulsionar-instagram` (co
 O código PLICS SW foi incorporado em `eliezer-dev/app/solucoes/plics-sw`.
 A origem pública das notificações PIX agora é `<NEXT_PUBLIC_APP_URL>/solucoes/plics-sw/api/webhook`.
 As rotas e assets receberam o mesmo prefixo. Consulte `docs/UNIFICACAO.md`.
+
+---
+
+## 2026-10-18 — Distribuição gratuita
+
+O site unificado deixa de vender licenças do Plics SW. Downloads da Microsoft Store e do GitHub são públicos. A URL antiga de compra leva ao download; registros históricos de compras são preservados. O fluxo PIX de impulsionamento do Instagram permanece separado. Detalhes em `docs/UNIFICACAO.md`.

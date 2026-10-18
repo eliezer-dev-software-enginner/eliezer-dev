@@ -37,3 +37,8 @@
 - [ ] Configurar variáveis de produção no deploy unificado e testar PIX, webhook e licença.
 - [ ] Atualizar URLs dos clientes desktop e redirects dos domínios antigos.
 - [ ] Resolver os avisos de lint herdados do projeto PLICS SW.
+
+## Distribuição gratuita
+
+- [ ] Verificar se o aplicativo desktop ainda exige licença e remover essa exigência no repositório do aplicativo.
+- [ ] Testar downloads da Microsoft Store, Windows e Linux em produção.

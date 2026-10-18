@@ -62,7 +62,7 @@ export default async function AtualizacaoPage({
 
               <p className={styles.subtitle}>
                 Baixe o instalador abaixo, feche o Plics SW e instale por cima
-                da versão atual — seus dados e sua licença continuam intactos.
+                da versão atual — seus dados locais continuam intactos.
               </p>
 
               {release && <DownloadButtons release={release} />}

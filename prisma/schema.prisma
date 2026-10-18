@@ -18,6 +18,7 @@ model Payment {
   @@map("payments")
 }
 
+// Histórico de compras anteriores à distribuição gratuita. Não apagar dados existentes.
 model UserPurchase {
   id        Int      @id @default(autoincrement())
   userId    String   @map("user_id")

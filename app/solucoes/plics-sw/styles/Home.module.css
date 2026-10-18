@@ -707,41 +707,6 @@
   z-index: 0;
 }
 
-.oldPrice {
-  font-size: 0.9rem;
-  color: #a8a29e;
-  text-decoration: line-through;
-}
-
-.newPriceWrap {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  line-height: 1;
-  gap: 2px;
-  margin: 0.25rem 0;
-}
-
-.currency {
-  font-size: 1.5rem;
-  color: #2563eb;
-  margin-top: 0.5rem;
-}
-
-.newPrice {
-  font-size: 5rem;
-  color: #2563eb;
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
-
-.cents {
-  font-size: 2rem;
-  color: #2563eb;
-  margin-top: 0.75rem;
-  opacity: 0.8;
-}
-
 .priceNote {
   font-size: 0.78rem;
   color: #a8a29e;
@@ -749,11 +714,7 @@
   margin: 0 0 1rem;
 }
 
-.priceSecurity {
-  font-size: 0.75rem;
-  color: #c4bfbb;
-  margin: 0.25rem 0 0;
-}
+
 
 .founder {
   padding: 5.5rem 1.5rem;
@@ -1082,4 +1043,22 @@
   box-shadow:
     0 24px 72px -16px rgba(28, 26, 22, 0.25),
     0 0 120px -16px rgba(37, 99, 235, 0.15);
+}
+
+.freeDownloadButton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.freeDownloadButton:hover { background: #1d4ed8; }
+.freePrice {
+  color: #2563eb;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
 }

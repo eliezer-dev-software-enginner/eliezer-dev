@@ -12,7 +12,7 @@ export async function savePayment(
   paymentId: string,
   userId: string,
   status: string,
-  product: string = 'plics-sw',
+  product: string = 'instagram-followers',
 ) {
   await prisma.payment.upsert({
     where: { id: paymentId },
@@ -31,18 +31,6 @@ export async function updatePaymentStatus(paymentId: string, status: string) {
 export async function getPayment(paymentId: string) {
   return prisma.payment.findUnique({
     where: { id: paymentId },
-  });
-}
-
-export async function grantUserAccess(userId: string, paymentId: string) {
-  await prisma.userPurchase.create({
-    data: { userId, paymentId },
-  });
-}
-
-export async function getUserPurchases(userId: string) {
-  return prisma.userPurchase.findMany({
-    where: { userId },
   });
 }
 

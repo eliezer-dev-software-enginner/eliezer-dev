@@ -27,8 +27,8 @@ export function Header() {
             <span className={styles.ghostButtonLabel}>Baixar</span>
           </Link>
 
-          <Link href='/solucoes/plics-sw/comprar-plics-sw' className={styles.primaryButton}>
-            Começar Agora
+          <Link href='/solucoes/plics-sw#baixar' className={styles.primaryButton}>
+            Baixar grátis
             <MoveRight size={16} />
           </Link>
         </nav>

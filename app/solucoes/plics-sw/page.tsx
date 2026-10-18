@@ -9,13 +9,8 @@ import {
   WifiOff,
   Zap,
 } from 'lucide-react';
-import {
-  getPriceFormatado,
-  getPriceFormatadoArray,
-  getUtmFromSearchParams,
-} from './lib/common';
+import { getUtmFromSearchParams } from './lib/common';
 
-import { ComprarButton } from '@/app/solucoes/plics-sw/components/ComprarButton';
 import { DownloadApp } from '@/app/solucoes/plics-sw/components/DownloadApp';
 import { Header } from '@/app/solucoes/plics-sw/components/Header';
 import { InstagramComprarButton } from '@/app/solucoes/plics-sw/components/InstagramComprarButton';
@@ -64,7 +59,7 @@ export default async function App({
           <div className={style.heroInner}>
             <div className={style.heroLabel}>
               <span className={style.heroDot} />
-              Sistema ERP · Licença Vitalícia
+              PLICs SW · Agora 100% grátis
             </div>
 
             <h1 className={style.heroTitle}>
@@ -72,21 +67,20 @@ export default async function App({
               <br />
               <span className={style.heroAccent}>Sem internet.</span>
               <br />
-              Sem mensalidade.
+              Grátis para usar.
             </h1>
 
             <p className={style.heroSubtitle}>
               O Plics-SW é um ERP 100% offline que coloca você no controle total
-              das suas vendas, estoque e financeiro — pague uma vez e use para
-              sempre.
+              das suas vendas, estoque e financeiro — baixe grátis e use sem chave de licença.
             </p>
 
             <div className={style.heroCta}>
-              <ComprarButton variant='primary' utm={utm} />
+              <a href='#baixar' className={style.freeDownloadButton}>Baixar grátis</a>
               <SuporteButton />
               <div className={style.heroMeta}>
                 <span>✓ Entrega imediata</span>
-                <span>✓ Licença vitalícia</span>
+                <span>✓ Sem chave de licença</span>
                 <span>✓ Sem mensalidade</span>
               </div>
             </div>
@@ -112,7 +106,7 @@ export default async function App({
           </div>
         </section>
 
-        {/* ── Download mediante licença ───────────────── */}
+        {/* ── Download gratuito ───────────────── */}
         <DownloadApp />
 
         {/* ── Vantagens ────────────────────────────── */}
@@ -143,10 +137,9 @@ export default async function App({
                 <div className={style.featureIconWrap}>
                   <Shield size={24} />
                 </div>
-                <h3>Pagamento Único</h3>
+                <h3>Gratuito</h3>
                 <p>
-                  Esqueça assinaturas e cobranças mensais. Você paga uma vez e o
-                  sistema é seu para sempre — sem pegadinha.
+                  Use o sistema sem pagar, sem assinatura e sem chave de ativação.
                 </p>
                 <div className={style.featureCardGlow} aria-hidden='true' />
               </div>
@@ -300,65 +293,33 @@ export default async function App({
           </div>
         </section>
 
-        {/* ── Preço ────────────────────────────────── */}
+        {/* ── Acesso gratuito ──────────────────────── */}
         <section className={style.pricing}>
           <div className={style.pricingBg} aria-hidden='true' />
           <div className={style.pricingInner}>
             <div className={style.pricingLeft}>
-              <div className={style.pricingLabel}>Oferta de lançamento</div>
+              <div className={style.pricingLabel}>Acesso gratuito</div>
               <h2 className={style.pricingTitle}>
-                Invista uma vez.
+                Gestão completa.
                 <br />
-                Use para sempre.
+                Sem custo.
               </h2>
               <p className={style.pricingDescription}>
-                Sem taxas escondidas, sem renovação anual. Uma licença vitalícia
-                com todas as funcionalidades desbloqueadas desde o primeiro dia.
+                Baixe o Plics SW e comece a usar. Não é preciso comprar uma licença
+                nem informar uma chave para obter os instaladores.
               </p>
               <ul className={style.pricingPerks}>
-                <li>
-                  <CheckCircle size={16} /> Licença vitalícia para 1 CNPJ
-                </li>
-                <li>
-                  <CheckCircle size={16} /> Atualizações gratuitas
-                </li>
-                <li>
-                  <CheckCircle size={16} /> Suporte vitalício via WhatsApp e
-                  Telegram
-                </li>
-                <li>
-                  <CheckCircle size={16} /> Windows &amp; Linux
-                </li>
+                <li><CheckCircle size={16} /> Download gratuito</li>
+                <li><CheckCircle size={16} /> Sem chave de licença</li>
+                <li><CheckCircle size={16} /> Atualizações gratuitas</li>
+                <li><CheckCircle size={16} /> Windows &amp; Linux</li>
               </ul>
             </div>
-
             <div className={style.pricingCard}>
               <div className={style.pricingCardInner}>
-                {process.env.NEXT_PUBLIC_PRECO ? (
-                  <>
-                    {process.env.NEXT_PUBLIC_PRECO_DE && (
-                      <span className={style.oldPrice}>
-                        De {getPriceFormatado(process.env.NEXT_PUBLIC_PRECO_DE)}
-                      </span>
-                    )}
-                    <div className={style.newPriceWrap}>
-                      <span className={style.currency}>R$</span>
-                      <span className={style.newPrice}>
-                        {getPriceFormatadoArray(process.env.NEXT_PUBLIC_PRECO)[0]}
-                      </span>
-                      <span className={style.cents}>
-                        {getPriceFormatadoArray(process.env.NEXT_PUBLIC_PRECO)[1]}
-                      </span>
-                    </div>
-                    <p className={style.priceNote}>pagamento único · via PIX</p>
-                    <ComprarButton variant='accent' utm={utm} />
-                  </>
-                ) : (
-                  <p className={style.priceNote}>Preço disponível em breve.</p>
-                )}
-                <p className={style.priceSecurity}>
-                  🔒 Pagamento seguro · Licença entregue na hora
-                </p>
+                <strong className={style.freePrice}>Grátis</strong>
+                <p className={style.priceNote}>Sem pagamento ou assinatura</p>
+                <a href='#baixar' className={style.freeDownloadButton}>Baixar Plics SW</a>
               </div>
               <div className={style.pricingCardGlow} aria-hidden='true' />
             </div>

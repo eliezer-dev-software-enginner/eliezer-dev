@@ -1,6 +1,6 @@
 import { Store } from 'lucide-react';
 
-import { LicensedDownloadForm } from '@/app/solucoes/plics-sw/components/LicensedDownloadForm';
+import { DownloadButtons } from '@/app/solucoes/plics-sw/components/DownloadButtons';
 import { getLatestRelease } from '@/app/solucoes/plics-sw/lib/githubRelease';
 import styles from '@/app/solucoes/plics-sw/styles/download.module.css';
 
@@ -16,7 +16,7 @@ export async function DownloadApp() {
         <div className={styles.label}>Download do Plics SW</div>
         <h2 className={styles.title}>Baixe o Plics SW</h2>
         <p className={styles.subtitle}>
-          Instale no Windows pela Microsoft Store de forma rápida e segura.
+          Gratuito e sem chave de licença. Instale pela Microsoft Store ou baixe o instalador para Windows e Linux.
         </p>
 
         <div className={styles.grid}>
@@ -37,14 +37,9 @@ export async function DownloadApp() {
         </div>
 
         {release && (release.downloadWindows || release.downloadLinux) && (
-          <div className={styles.licensedDownload}>
-            <p className={styles.licensedDownloadTitle}>
-              Já possui uma licença ou usa Linux?
-            </p>
-            <LicensedDownloadForm
-              hasWindows={Boolean(release.downloadWindows)}
-              hasLinux={Boolean(release.downloadLinux)}
-            />
+          <div className={styles.directDownload}>
+            <p className={styles.downloadHeading}>Instaladores diretos</p>
+            <DownloadButtons release={release} />
           </div>
         )}
 

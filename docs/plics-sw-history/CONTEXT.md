@@ -108,3 +108,7 @@ plics-sw-website/
 A fonte ativa do deploy é `eliezer-dev`, com PLICS SW em `/solucoes/plics-sw`.
 As rotas descritas acima registram o estado do repositório de origem; a equivalência
 atual está em `docs/UNIFICACAO.md`.
+
+## 2026-10-18 — Acesso gratuito
+
+As seções acima documentam o modelo comercial anterior. O site atual não exige licença para baixar o Plics SW nem oferece a compra do ERP. Consulte `docs/UNIFICACAO.md`.
