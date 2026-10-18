@@ -250,3 +250,9 @@ As rotas e assets receberam o mesmo prefixo. Consulte `docs/UNIFICACAO.md`.
 ## 2026-10-18 — Distribuição gratuita
 
 O site unificado deixa de vender licenças do Plics SW. Downloads da Microsoft Store e do GitHub são públicos. A URL antiga de compra leva ao download; registros históricos de compras são preservados. O fluxo PIX de impulsionamento do Instagram permanece separado. Detalhes em `docs/UNIFICACAO.md`.
+
+---
+
+## 2026-10-18 — Rota independente do impulsionamento
+
+A página do serviço Instagram foi movida para `/solucoes/impulsionar-instagram`, com redirects dos caminhos anteriores. O checkout PIX do serviço permanece ativo.

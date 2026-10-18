@@ -1,6 +1,6 @@
 //app/impulsionar-instagram/page.tsx
 
-import { getUtmFromSearchParams } from '../lib/common';
+import { getUtmFromSearchParams } from '@/app/solucoes/plics-sw/lib/common';
 import ComprarClient from './ComprarClient';
 
 export const dynamic = 'force-dynamic';

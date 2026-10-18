@@ -15,7 +15,7 @@ import { DownloadApp } from '@/app/solucoes/plics-sw/components/DownloadApp';
 import { Header } from '@/app/solucoes/plics-sw/components/Header';
 import { InstagramComprarButton } from '@/app/solucoes/plics-sw/components/InstagramComprarButton';
 import { InstagramFollowersPopup } from '@/app/solucoes/plics-sw/components/InstagramFollowersPopup';
-import { FOLLOWERS_TIERS, formatBRL } from '@/app/solucoes/plics-sw/impulsionar-instagram/constants';
+import { FOLLOWERS_TIERS, formatBRL } from '@/app/solucoes/impulsionar-instagram/constants';
 import style from '@/app/solucoes/plics-sw/styles/Home.module.css';
 import Image from 'next/image';
 import { SuporteButton } from './components/SuporteButton';

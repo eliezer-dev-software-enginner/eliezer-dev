@@ -42,3 +42,7 @@
 
 - [ ] Verificar se o aplicativo desktop ainda exige licença e remover essa exigência no repositório do aplicativo.
 - [ ] Testar downloads da Microsoft Store, Windows e Linux em produção.
+
+## Rota Instagram
+
+- [ ] Atualizar anúncios e links externos para `/solucoes/impulsionar-instagram`.

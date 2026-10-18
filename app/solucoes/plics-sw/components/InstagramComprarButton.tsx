@@ -27,7 +27,7 @@ export function InstagramComprarButton({ utm }: { utm: UTM }) {
     if (utm.campaign) params.set('utm_campaign', utm.campaign);
     if (utm.content) params.set('utm_content', utm.content);
 
-    router.push(`/solucoes/plics-sw/impulsionar-instagram?${params.toString()}`);
+    router.push(`/solucoes/impulsionar-instagram?${params.toString()}`);
   };
 
   return (

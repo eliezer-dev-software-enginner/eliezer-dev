@@ -20,7 +20,7 @@ Use `.env.example` como lista de configuração, sem copiar segredos ao Git. Pre
 
 ## Compatibilidade
 
-O alias antigo de anúncio `/solucoes/plics-sw/comprar-inscritos-instagram` redireciona para `/solucoes/plics-sw/impulsionar-instagram`. Para o domínio antigo do PLICS e o domínio antigo do blog, configure redirects no provedor dos respectivos domínios para o novo domínio; o app unificado não controla requisições recebidas por domínios que não apontem para ele.
+O alias antigo de anúncio `/solucoes/plics-sw/comprar-inscritos-instagram` e a rota anterior `/solucoes/plics-sw/impulsionar-instagram` redirecionam para `/solucoes/impulsionar-instagram`. Para o domínio antigo do PLICS e o domínio antigo do blog, configure redirects no provedor dos respectivos domínios para o novo domínio; o app unificado não controla requisições recebidas por domínios que não apontem para ele.
 
 ## Pendências de validação
 
@@ -33,3 +33,7 @@ A compra do ERP, a concessão de acesso por pagamento e o formulário de licenç
 ## Ambiente local do blog — 18/10/2026
 
 As variáveis Firebase existentes em `meu-blog-app/.env.local` foram copiadas para `eliezer-dev/.env.local` localmente. O arquivo é ignorado pelo Git. Em novos ambientes, configure as chaves `NEXT_PUBLIC_FIREBASE_*` e `ADMIN_API_SECRET` a partir de um gerenciador de segredos; reinicie o servidor Next após alterá-las. O erro `auth/invalid-api-key` em `/blog` indica ausência ou valor incorreto de `NEXT_PUBLIC_FIREBASE_API_KEY`. A mensagem `Failed to benchmark file I/O` do Turbopack é separada desse erro.
+
+## Rota do impulsionamento — 18/10/2026
+
+A página do serviço separado de impulsionamento está em `/solucoes/impulsionar-instagram`. Os links internos, sitemap e redirecionamentos apontam para esse caminho. As ações PIX e o webhook mantêm a lógica e o endpoint de pagamento existentes; apenas a rota pública da página mudou.

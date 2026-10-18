@@ -12,7 +12,7 @@ import { getPixService } from '@/app/solucoes/plics-sw/lib/pixConfig';
 import { fulfillInstagramFollowersOrder } from '@/app/solucoes/plics-sw/lib/smmFulfillment';
 import { smmStatus } from '@/app/solucoes/plics-sw/lib/smmApi';
 import { mockSmmStatus } from '@/app/solucoes/plics-sw/lib/smmApiMock';
-import { getBaseUrl, UTM } from '../lib/common';
+import { getBaseUrl, UTM } from '@/app/solucoes/plics-sw/lib/common';
 import { getTierByQuantity } from './constants';
 
 export async function createInstagramFollowersPixPayment(

@@ -3,7 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
-      { source: '/solucoes/plics-sw/comprar-inscritos-instagram', destination: '/solucoes/plics-sw/impulsionar-instagram', permanent: true },
+      { source: '/solucoes/plics-sw/comprar-inscritos-instagram', destination: '/solucoes/impulsionar-instagram', permanent: true },
+      { source: '/solucoes/plics-sw/impulsionar-instagram', destination: '/solucoes/impulsionar-instagram', permanent: true },
     ];
   },
   images: {

@@ -9,7 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = getBaseUrl();
   const pages: MetadataRoute.Sitemap = [
     '/', '/blog', '/solucoes/plics-sw',
-    '/solucoes/plics-sw/impulsionar-instagram',
+    '/solucoes/impulsionar-instagram',
     '/solucoes/plics-sw/atualizacao',
     '/solucoes/plics-sw/politica-de-privacidade',
   ].map(path => ({ url: `${base}${path}`, lastModified: new Date() }));

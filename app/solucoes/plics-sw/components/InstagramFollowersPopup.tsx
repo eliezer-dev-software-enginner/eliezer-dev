@@ -3,7 +3,7 @@
 import { Instagram, Sparkles, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
-import { FOLLOWERS_TIERS, formatBRL } from '@/app/solucoes/plics-sw/impulsionar-instagram/constants';
+import { FOLLOWERS_TIERS, formatBRL } from '@/app/solucoes/impulsionar-instagram/constants';
 import { getUserId, setUserId } from '@/app/solucoes/plics-sw/lib/userId';
 import { useRouter } from 'next/navigation';
 import styles from '@/app/solucoes/plics-sw/styles/NoveltyPopup.module.css';
@@ -46,7 +46,7 @@ export function InstagramFollowersPopup({ utm }: { utm: UTM }) {
     if (utm.content) params.set('utm_content', utm.content);
 
     localStorage.setItem(DISMISSED_KEY, 'true');
-    router.push(`/solucoes/plics-sw/impulsionar-instagram?${params.toString()}`);
+    router.push(`/solucoes/impulsionar-instagram?${params.toString()}`);
   }
 
   if (!visible) return null;

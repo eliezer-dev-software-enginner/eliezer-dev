@@ -15,8 +15,8 @@ import styles from '@/app/solucoes/plics-sw/styles/impulsionarInstagram.module.c
 import Image from 'next/image';
 import { PixPaymentResult } from 'pix-payment';
 import { toast } from 'react-toastify';
-import FalarComSuporteComponent from '../components/FalarComSuporte';
-import { UTM } from '../lib/common';
+import FalarComSuporteComponent from '@/app/solucoes/plics-sw/components/FalarComSuporte';
+import { UTM } from '@/app/solucoes/plics-sw/lib/common';
 import PixPaymentHolder from './components/pix-payment-holder';
 import { FOLLOWERS_TIERS, formatBRL, getTierByQuantity } from './constants';
 import { installTestModeConsoleFlag, isTestModeEnabled } from './testMode';

@@ -112,3 +112,7 @@ atual está em `docs/UNIFICACAO.md`.
 ## 2026-10-18 — Acesso gratuito
 
 As seções acima documentam o modelo comercial anterior. O site atual não exige licença para baixar o Plics SW nem oferece a compra do ERP. Consulte `docs/UNIFICACAO.md`.
+
+## 2026-10-18 — Rota Instagram
+
+O serviço Instagram usa `/solucoes/impulsionar-instagram`. Referências anteriores ao caminho dentro de `/solucoes/plics-sw` são históricas.
