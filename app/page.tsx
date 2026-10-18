@@ -147,7 +147,7 @@ export default function Home() {
           </a>
 
           <a
-            href='https://blog-do-eliezer.vercel.app/'
+            href='/blog'
             target='_blank'
             rel='noopener noreferrer'
             style={{

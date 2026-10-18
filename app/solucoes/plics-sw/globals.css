@@ -1,0 +1,27 @@
+
+
+.plicsSite, .plicsSite * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.plicsSite {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --accent: #f59e0b;
+  --text-main: #1f2937;
+  --text-muted: #4b5563;
+  --bg-light: #f9fafb;
+  --success: #22c55e;
+  --warning: #fbbf24;
+  --error: #ef4444;
+}
+
+.plicsSite {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+}

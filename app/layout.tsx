@@ -3,6 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
   title: 'Eliezer Dev | Analista Desenvolvedor Pleno + IA',
   description:
     'Portfólio de Eliezer Assunção de Paulo, Analista Desenvolvedor Pleno + IA com experiência em Java, Spring Boot, TypeScript, React, automação e produtos de software.',

@@ -1,0 +1,37 @@
+// /app/redirect-old-post/[id]/page.jsx
+import { redirect } from 'next/navigation';
+import { query, collection, where, getDocs } from 'firebase/firestore';
+import { serverDb } from '@/lib/blog/firebase-server';
+import { FIREBASE_COLLECTIONS } from '@/lib/blog/collections';
+
+// Server-side redirect from old ID-based URLs to new slug-based URLs
+export default async function RedirectPage({ params }) {
+  const { id } = await params;
+
+  try {
+    // Search for post by ID in the new collection
+    const postsQuery = query(
+      collection(serverDb, FIREBASE_COLLECTIONS.POSTS),
+      where('__name__', '==', id)
+    );
+    const querySnapshot = await getDocs(postsQuery);
+
+    if (!querySnapshot.empty) {
+      const post = querySnapshot.docs[0].data();
+
+      // If post has slug, redirect to new URL (301 permanent)
+      if (post.slug) {
+        redirect(`/blog/post/${post.slug}`);
+      } else {
+        // If no slug, redirect to home
+        redirect('/');
+      }
+    } else {
+      // Post not found, redirect to home
+      redirect('/');
+    }
+  } catch (error) {
+    console.error('Error during redirect:', error);
+    redirect('/');
+  }
+}
