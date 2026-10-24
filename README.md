@@ -2,6 +2,8 @@
 
 Source code for my personal portfolio site, built with **Next.js 16**, **React 19**, **TypeScript**, and **Tailwind CSS 4**.
 
+This repository contains the portfolio at `/`, a Firebase-backed blog at `/blog`, a Plics SW product page at `/solucoes/plics-sw`, and an Instagram promotion flow at `/solucoes/impulsionar-instagram`. The latter routes use external services; running the site locally does not provide those services by itself.
+
 [LinkedIn](https://www.linkedin.com/in/eliezersoftwareenginner/) · [GitHub](https://github.com/eliezer-dev-software-enginner) · [Blog](https://blog-do-eliezer.vercel.app/)
 
 ## About me
@@ -55,12 +57,18 @@ I move fluidly between writing code by hand and working with AI coding agents, d
 
 ## Getting started
 
+Use Node.js **20.9.0 or newer** (the requirement declared by the installed Next.js version) and npm. From the repository root:
+
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the result. The page auto-updates as you edit `app/page.tsx`.
+Open [http://localhost:3000](http://localhost:3000) for the portfolio. The page auto-updates as you edit `app/page.tsx`.
+
+For the blog, configure the `NEXT_PUBLIC_FIREBASE_*` values from your own Firebase project in a local `.env.local` file, using [`.env.example`](.env.example) as the list of variables. Blog administration also uses `ADMIN_API_SECRET`. For the payment and Instagram routes, the code uses PostgreSQL through Prisma (`PRISMA_URL`), Mercado Pago credentials (`MP_ACCESS_TOKEN_TEST` or `MP_ACCESS_TOKEN_PROD`), and SMM service settings. Configure only the services you intend to use, using your own credentials; do not commit `.env.local`.
+
+The production build runs `prisma generate` before `next build`. A working deployment of the database-backed routes additionally needs a PostgreSQL database matching [`prisma/schema.prisma`](prisma/schema.prisma). This README does not prescribe database migrations or live payment tests.
 
 ```bash
 npm run build   # production build
