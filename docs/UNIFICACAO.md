@@ -37,3 +37,7 @@ As variáveis Firebase existentes em `meu-blog-app/.env.local` foram copiadas pa
 ## Rota do impulsionamento — 18/10/2026
 
 A página do serviço separado de impulsionamento está em `/solucoes/impulsionar-instagram`. Os links internos, sitemap e redirecionamentos apontam para esse caminho. As ações PIX e o webhook mantêm a lógica e o endpoint de pagamento existentes; apenas a rota pública da página mudou.
+
+## Protheus Mega Brain — 24/10/2026
+
+A ferramenta foi incorporada em `/solucoes/protheus-mega-brain`. O HTML, CSS e JavaScript ativos ficam em `public/solucoes/protheus-mega-brain`; o histórico e as decisões da migração estão em `docs/protheus-mega-brain/MIGRACAO.md`. O repositório antigo foi arquivado em um bundle antes da remoção local.

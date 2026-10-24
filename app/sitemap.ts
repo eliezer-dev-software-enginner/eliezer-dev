@@ -10,6 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const pages: MetadataRoute.Sitemap = [
     '/', '/blog', '/solucoes/plics-sw',
     '/solucoes/impulsionar-instagram',
+    '/solucoes/protheus-mega-brain',
     '/solucoes/plics-sw/atualizacao',
     '/solucoes/plics-sw/politica-de-privacidade',
   ].map(path => ({ url: `${base}${path}`, lastModified: new Date() }));

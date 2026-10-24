@@ -1,0 +1,45 @@
+.page {
+  height: 100dvh;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  background: #f7f8fc;
+}
+
+.navigation {
+  min-height: 56px;
+  padding: 0.5rem clamp(1rem, 3vw, 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: #102447;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 0.875rem;
+}
+
+.navigation a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navigation a:hover,
+.navigation a:focus-visible {
+  text-decoration: underline;
+}
+
+.navigation span {
+  font-weight: 700;
+}
+
+.tool {
+  width: 100%;
+  flex: 1;
+  border: 0;
+  background: #fff;
+}
+
+@media (max-width: 600px) {
+  .navigation span { display: none; }
+}

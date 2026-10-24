@@ -40,8 +40,8 @@ export const projects: Project[] = [
     description:
       'Ferramenta local para acelerar tarefas do ecossistema TOTVS Protheus. Gera campos SX3, gatilhos SX7, expressões ADVPL, fixtures compatíveis com o AdvPL TestLab e estruturas MVC com FWMBrowse, ModelDef e ViewDef. Funciona direto no navegador e salva as configurações localmente.',
     title: 'Protheus Mega Brain',
-    btnText: 'Ver projeto no GitHub',
-    href: 'https://github.com/eliezer-dev-software-enginner/protheus-mega-brain',
+    btnText: 'Abrir ferramenta',
+    href: '/solucoes/protheus-mega-brain',
     techs: ['AdvPL', 'JavaScript', 'HTML', 'CSS', 'TOTVS Protheus'],
   },
   {

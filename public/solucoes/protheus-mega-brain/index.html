@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Monte campos SX3 e gatilhos SX7 com regras ADVPL para o TOTVS Protheus.">
+  <title>Gerador SX3 | Campos e Regras ADVPL para TOTVS Protheus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/app.css">
+  <script src="./assets/js/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5M3 12a9 3 0 0 0 18 0"/></svg>
+      </div>
+      <div class="brand-copy"><strong>Gerador SX3</strong><span>Dicionário de Dados &amp; regras ADVPL — TOTVS Protheus</span></div>
+      <button id="theme-toggle" class="icon-button theme-button" type="button" aria-label="Alternar tema" title="Alternar tema">☾</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <div class="editor" role="region" aria-label="Editor de campos e gatilhos" tabindex="0">
+      <section class="card" aria-labelledby="heading-name">
+        <div class="card-header"><h2 id="heading-name">1. Identificação e nomenclatura</h2><p>O padrão SX3 permite no máximo 10 caracteres no nome do campo.</p></div>
+        <div class="card-body stack">
+          <div class="field-grid">
+            <div class="field"><label for="base">Nome base</label><input id="base" class="mono upper" value="PRODUT" placeholder="PRODUT" autocomplete="off"></div>
+          </div>
+          <div class="name-preview"><div class="preview-heading"><span>Nome completo</span><span id="name-count" class="count">10/10 — 0 restantes</span></div><strong id="full-name" class="mono">Z05_PRODUT</strong></div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="heading-fields">
+        <div class="table-prefix-bar"><div class="field"><label for="table-prefix">Prefixo da tabela</label><input id="table-prefix" class="mono upper" value="ZA1" maxlength="3" placeholder="ZA1"><small>Usado como alias da tabela no JSON e no fonte MVC.</small></div></div>
+        <div class="card-header"><h2 id="heading-fields"><span class="accent-icon">▦</span> Campos da tabela</h2><p>As seções abaixo editam o campo selecionado. Crie quantos campos forem necessários para a tabela.</p></div>
+        <div class="card-body stack">
+          <div class="field-toolbar"><button id="new-field" class="small-button primary" type="button">+ Novo campo</button></div>
+          <div id="field-list" class="field-list" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="heading-props">
+        <div class="card-header"><h2 id="heading-props">2. Propriedades iniciais</h2><p>Título, tipo, tamanho e decimais do campo SX3.</p></div>
+        <div class="card-body field-grid two">
+          <div class="field"><label for="title">Título</label><input id="title" value="Produto"></div>
+          <div class="field"><label for="field-type">Tipo</label><select id="field-type"><option value="C">C - Caracter</option><option value="N">N - Numérico</option><option value="D">D - Data</option><option value="L">L - Lógico</option><option value="M">M - Memo</option></select></div>
+          <div class="field"><label for="size">Tamanho</label><input id="size" inputmode="numeric" value="15"></div>
+          <div class="field"><label for="decimals">Decimais</label><input id="decimals" inputmode="numeric" value="0" disabled></div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="heading-init">
+        <div class="card-header"><h2 id="heading-init"><span class="accent-icon">ϟ</span> 3. Inicializador Padrão (X3_RELACAO)</h2><p>Valor inicial atribuído ao campo ao incluir um registro. <span id="init-hint">Numeração sequencial via tabela SXE: GetSXENum("TABELA", "CAMPO").</span></p></div>
+        <div class="card-body stack">
+          <div class="choice-grid" data-choice-group="init" aria-label="Inicializador padrão">
+            <button type="button" class="choice" data-choice="getsxenum" aria-pressed="true"><strong>GetSXENum — Numeração automática</strong><small>Numeração sequencial via tabela SXE: GetSXENum("TABELA", "CAMPO").</small></button>
+            <button type="button" class="choice" data-choice="getsx8num" aria-pressed="false"><strong>GetSX8Num — Numeração alternativa</strong><small>Numeração sequencial via tabela SX8: GetSX8Num("TABELA", "CAMPO").</small></button>
+            <button type="button" class="choice" data-choice="data" aria-pressed="false"><strong>Data atual</strong><small>Preenche com a data base do sistema (dDataBase).</small></button>
+            <button type="button" class="choice" data-choice="hora" aria-pressed="false"><strong>Hora atual</strong><small>Preenche com a hora atual no formato HH:MM:SS.</small></button>
+            <button type="button" class="choice" data-choice="usuario" aria-pressed="false"><strong>Usuário logado</strong><small>Usa cUserName ou RetCodUsr().</small></button>
+            <button type="button" class="choice" data-choice="filial" aria-pressed="false"><strong>Filial corrente</strong><small>Usa cFilAnt ou xFilial("TABELA").</small></button>
+            <button type="button" class="choice" data-choice="fixo" aria-pressed="false"><strong>Valor fixo / texto</strong><small>Preenche sempre com um valor constante.</small></button>
+            <button type="button" class="choice" data-choice="positivo" aria-pressed="false"><strong>Positivo()</strong><small>Retorna o valor positivo do campo.</small></button>
+            <button type="button" class="choice" data-choice="criavar" aria-pressed="false"><strong>CriaVar — Valor padrão de campo</strong><small>CriaVar("CAMPO").</small></button>
+            <button type="button" class="choice" data-choice="getmv" aria-pressed="false"><strong>GetMv — Parâmetro do sistema</strong><small>Lê um parâmetro da tabela SX6.</small></button>
+            <button type="button" class="choice" data-choice="livre" aria-pressed="false"><strong>Personalizado / livre</strong><small>Escreva uma expressão ADVPL para X3_RELACAO.</small></button>
+          </div>
+          <hr>
+          <div id="init-number-fields" class="field-grid two">
+            <div class="field"><label for="init-table">Tabela / Alias</label><input id="init-table" class="mono upper" list="tables" placeholder="Z05"><small>Vazio usa o prefixo do campo: <code id="init-table-fallback">Z05</code></small></div>
+            <div class="field"><label for="init-field">Campo a numerar</label><input id="init-field" class="mono upper" placeholder="Z05_PRODUT"><small>Vazio usa o próprio campo: <code id="init-field-fallback">Z05_PRODUT</code></small></div>
+          </div>
+          <div id="init-user-fields" class="field" hidden><label for="init-user-mode">Forma de obter o usuário</label><select id="init-user-mode"><option value="cusername">cUserName</option><option value="retcodusr">RetCodUsr()</option></select></div>
+          <div id="init-branch-fields" class="field-grid two" hidden><div class="field"><label for="init-branch-mode">Forma de obter a filial</label><select id="init-branch-mode"><option value="cfilant">cFilAnt</option><option value="xfilial">xFilial("TABELA")</option></select></div><div class="field"><label for="init-branch-table">Tabela / Alias</label><input id="init-branch-table" class="mono upper" placeholder="Z05" list="tables"></div></div>
+          <div id="init-fixed-fields" class="field" hidden><label for="init-fixed">Valor fixo</label><input id="init-fixed" class="mono" placeholder='"VALOR" ou 0'></div>
+          <div id="init-criavar-fields" class="field" hidden><label for="init-criavar-field">Campo para CriaVar</label><input id="init-criavar-field" class="mono upper" placeholder="Z05_PRODUT"></div>
+          <div id="init-mv-fields" class="field" hidden><label for="init-mv-param">Parâmetro do sistema</label><input id="init-mv-param" class="mono upper" placeholder="MV_..."></div>
+          <div id="init-free-fields" class="field" hidden><label for="init-free">Expressão personalizada</label><textarea id="init-free" class="mono" rows="3" placeholder="Expressão ADVPL"></textarea></div>
+          <div class="field"><span class="field-label muted-label">Inicializador Padrão (X3_RELACAO)</span><div class="code-box"><pre id="init-preview"></pre><button class="copy-button" type="button" data-copy="init-preview" aria-label="Copiar inicializador" title="Copiar">▢</button></div></div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="heading-valid">
+        <div class="card-header"><h2 id="heading-valid"><span class="accent-icon">✓</span> 4. Validação do campo (X3_VALID / X3_VLDUSER)</h2><p id="valid-hint">Valida se o conteúdo digitado existe na tabela informada.</p></div>
+        <div class="card-body stack">
+          <div class="choice-grid" data-choice-group="valid" aria-label="Validação do campo">
+            <button type="button" class="choice" data-choice="existcpo" aria-pressed="true"><strong>ExistCpo</strong><small>Valida se o conteúdo existe na tabela.</small></button>
+            <button type="button" class="choice" data-choice="existchav" aria-pressed="false"><strong>ExistChav</strong><small>Impede chave duplicada no cadastro.</small></button>
+            <button type="button" class="choice" data-choice="pertence" aria-pressed="false"><strong>Pertence</strong><small>Restringe a uma lista fixa de opções.</small></button>
+            <button type="button" class="choice" data-choice="naovazio" aria-pressed="false"><strong>NaoVazio</strong><small>Obriga o preenchimento do campo.</small></button>
+            <button type="button" class="choice" data-choice="positivo" aria-pressed="false"><strong>Positivo</strong><small>Aceita somente números positivos.</small></button>
+            <button type="button" class="choice" data-choice="livre" aria-pressed="false"><strong>Validação livre / customizada</strong><small>Expressão ADVPL verdadeira ou falsa.</small></button>
+          </div>
+          <hr>
+          <div id="valid-lookup-fields" class="field-grid two">
+            <div class="field"><label for="valid-table">Tabela consultada</label><select id="valid-table"><option value="">Mesma tabela do gatilho</option></select><input id="valid-table-custom" class="mono upper" aria-label="Código de outra tabela para validação" placeholder="Código da tabela" hidden><small>Sugestão pela tabela do gatilho: <code id="valid-table-fallback">SB1</code></small></div>
+            <div class="field"><label for="valid-field">Campo validado</label><input id="valid-field" class="mono upper" placeholder="Z05_PRODUT"></div>
+            <div id="valid-order-field" class="field"><label for="valid-order">Ordem / Índice</label><input id="valid-order" inputmode="numeric" value="1"></div>
+            <label id="valid-with-row" class="toggle-row compact"><span>Informar campo e ordem <small>Desligado gera <code>ExistCpo("TAB")</code></small></span><input id="valid-with-field" type="checkbox" role="switch" checked></label>
+          </div>
+          <div id="valid-list-fields" class="field" hidden><label for="valid-list">Opções permitidas</label><input id="valid-list" class="mono" value="123"><small>Use junto com X3_CBOX.</small></div>
+          <div id="valid-free-fields" class="field" hidden><label for="valid-free">Expressão personalizada</label><textarea id="valid-free" class="mono" rows="3" placeholder="Expressão ADVPL"></textarea></div>
+          <div class="field"><label for="valid-slot">Onde aplicar</label><select id="valid-slot"><option value="X3_VALID">X3_VALID — Validação do sistema</option><option value="X3_VLDUSER">X3_VLDUSER — Validação do usuário</option></select></div>
+          <div class="field"><span id="valid-preview-label" class="field-label muted-label">Validação (X3_VALID)</span><div class="code-box"><pre id="valid-preview"></pre><button class="copy-button" type="button" data-copy="valid-preview" aria-label="Copiar validação" title="Copiar">▢</button></div></div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="heading-relation">
+        <div class="card-header"><h2 id="heading-relation"><span class="accent-icon">◇</span> 5. Relação do gatilho SX7</h2><p>O domínio dispara o gatilho; o contradomínio recebe o resultado da regra.</p></div>
+        <div class="card-body stack">
+          <div class="relation-grid"><div class="relation-box"><small>Campo de origem (Domínio)</small><strong id="domain-name" class="mono">Z05_PRODUT</strong><small>Dispara o gatilho</small></div><span class="relation-arrow" aria-hidden="true">→</span><div class="relation-box destination"><small>Campo de destino (Contradomínio)</small><strong id="destination-name" class="mono">Z05_DESCRI</strong><small>Recebe o valor da regra</small></div></div>
+          <div class="field"><div class="label-line"><label for="destination">Campo de destino (Contradomínio)</label><span id="destination-count" class="count">10/10</span></div><input id="destination" class="mono upper" list="destinations" value="Z05_DESCRI"><small>Nome do campo que será atualizado automaticamente pela regra.</small><div id="destination-suggestions" class="suggestions"></div></div>
+          <div class="field-grid three"><div class="field"><label for="trigger-type">Tipo</label><select id="trigger-type"><option value="P">P — Primário</option><option value="E">E — Estrangeiro</option><option value="X">X — Posicionamento</option></select></div><div class="field"><label for="sequence">Sequência</label><input id="sequence" class="mono" inputmode="numeric" maxlength="3" value="001"></div><div class="field"><label for="trigger-seek">Posiciona / Executa</label><select id="trigger-seek"><option value="N">N — Não</option><option value="S">S — Sim</option></select></div></div>
+          <div class="code-box"><span class="code-heading">Copiar campo contradomínio</span><pre id="destination-preview"></pre><button class="copy-button" type="button" data-copy="destination-preview" aria-label="Copiar campo de destino" title="Copiar">▢</button></div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="heading-trigger">
+        <div class="card-header"><h2 id="heading-trigger"><span class="accent-icon">✧</span> 6. Regra do gatilho ADVPL</h2><p id="trigger-hint">Busca a descrição em uma tabela relacionada e preenche o contradomínio do gatilho (X7_REGRA).</p></div>
+        <div class="card-body stack">
+          <div class="choice-grid" data-choice-group="trigger" aria-label="Regra do gatilho">
+            <button type="button" class="choice" data-choice="posicione" aria-pressed="true"><strong>Posicione</strong><small>Busca uma descrição na tabela relacionada.</small></button>
+            <button type="button" class="choice" data-choice="livre" aria-pressed="false"><strong>Regra livre / personalizada</strong><small>Expressão ADVPL de preenchimento.</small></button>
+          </div>
+          <hr>
+          <div id="trigger-lookup-fields" class="field-grid two">
+            <div class="field"><label for="trigger-table">Tabela consultada</label><select id="trigger-table"></select><input id="trigger-table-custom" class="mono upper" aria-label="Código de outra tabela para o gatilho" placeholder="Código da tabela" hidden></div>
+            <div class="field"><label for="trigger-order">Ordem / Índice</label><input id="trigger-order" inputmode="numeric" value="1"></div>
+            <div class="field"><label for="trigger-key">Chave de busca</label><input id="trigger-key" class="mono upper" placeholder="Z05_PRODUT"></div>
+            <div class="field"><label for="trigger-key-mode">Forma de leitura da chave</label><select id="trigger-key-mode"><option value="fwfldget">FwFldGet("CAMPO")</option><option value="mvar">M-&gt;CAMPO</option></select></div>
+            <div class="field span-two"><label for="trigger-return">Campo de retorno</label><input id="trigger-return" class="mono upper" list="fields" value="B1_DESC"></div>
+          </div>
+          <div id="trigger-free-fields" class="field" hidden><label for="trigger-free">Expressão personalizada</label><textarea id="trigger-free" class="mono" rows="4">IIf(Empty(M-&gt;Z05_PRODUT), .F., .T.)</textarea></div>
+          <div class="field"><span class="field-label muted-label">Regra do gatilho (X7_REGRA)</span><div class="code-box"><pre id="trigger-preview"></pre><button class="copy-button" type="button" data-copy="trigger-preview" aria-label="Copiar regra do gatilho" title="Copiar">▢</button></div></div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="heading-mvc">
+        <div class="card-header"><h2 id="heading-mvc"><span class="accent-icon">▣</span> 7. Gerador MVC</h2><p>Gere o JSON do cenário e o fonte `.prw` a partir dos dados abaixo.</p></div>
+        <div class="card-body stack">
+          <div class="field-grid two">
+            <div class="field"><label for="mvc-model-type">Modelo de geração</label><select id="mvc-model-type"><option value="tipo1">Tipo 1 — FWMBrowse + MPFormModel</option></select></div>
+            <div class="field"><label>Alias / tabela</label><div class="static-value mono" id="mvc-alias-preview">ZA1</div><small>Definido pelo prefixo da tabela acima.</small></div>
+            <div class="field"><label for="mvc-function">User Function</label><input id="mvc-function" class="mono upper" value="ZA1MVC"></div>
+            <div class="field"><label for="mvc-title">Descrição do cadastro</label><input id="mvc-title" value="Gerenciamento de livros"></div>
+            <div class="field span-two"><label for="mvc-primary-key">Chave primária</label><div id="mvc-primary-key" class="static-value mono"></div><div id="mvc-primary-key-choices" class="suggestions"></div><small><code><span class="mono">PREFIXO_FILIAL</span></code> é obrigatório. Clique nos campos para adicionar ou remover.</small></div>
+          </div>
+          <div class="field"><div class="label-line"><span class="field-label muted-label">JSON do cenário</span><div class="code-actions"><button class="copy-button inline" type="button" data-copy="mvc-json-preview" aria-label="Copiar JSON MVC" title="Copiar">▢</button><button class="small-button" type="button" data-download="json">Baixar .jsonc</button></div></div><div class="code-box"><pre id="mvc-json-preview"></pre></div></div>
+          <div class="field"><div class="label-line"><span class="field-label muted-label">Fonte ADVPL</span><div class="code-actions"><button class="copy-button inline" type="button" data-copy="mvc-prw-preview" aria-label="Copiar fonte ADVPL" title="Copiar">▢</button><button class="small-button" type="button" data-download="prw">Baixar .prw</button></div></div><div class="code-box"><pre id="mvc-prw-preview"></pre></div></div>
+        </div>
+      </section>
+    </div>
+
+    <aside class="summary-column" aria-label="Resultados" tabindex="0">
+      <section class="card" aria-labelledby="heading-utilities">
+        <div class="card-header"><h2 id="heading-utilities"><span class="accent-icon">⌘</span> Utilidades ADVPL</h2><p>Gere e copie expressões sem abrir o editor de campo.</p></div>
+        <div class="card-body stack">
+          <div class="field-grid two">
+            <div class="field"><label for="utility-field">Campo</label><input id="utility-field" class="mono upper" placeholder="ZA1_COD"></div>
+            <div class="field"><label for="utility-table">Tabela / alias</label><input id="utility-table" class="mono upper" placeholder="ZA1"><small>Usado quando a expressão exigir tabela.</small></div>
+            <div class="field span-two"><label for="utility-parameter">Parâmetro / valor</label><input id="utility-parameter" class="mono" placeholder="Ex.: MV_PARAM, 123, 10 ou VALOR"><small>Usado por métodos que precisam de parâmetro, lista, limite ou valor fixo.</small></div>
+          </div>
+          <div class="utility-group"><span class="field-label">Inicializador rápido</span><div class="utility-methods" aria-label="Inicializadores rápidos"><button type="button" class="small-button" data-utility-init="getsxenum">GetSXENum</button><button type="button" class="small-button" data-utility-init="getsx8num">GetSX8Num</button><button type="button" class="small-button" data-utility-init="data">dDataBase</button><button type="button" class="small-button" data-utility-init="dtos">DToS(data)</button><button type="button" class="small-button" data-utility-init="hora">Time()</button><button type="button" class="small-button" data-utility-init="usuario">cUserName</button><button type="button" class="small-button" data-utility-init="retcodusr">RetCodUsr()</button><button type="button" class="small-button" data-utility-init="filial">cFilAnt</button><button type="button" class="small-button" data-utility-init="xfilial">xFilial</button><button type="button" class="small-button" data-utility-init="getmv">GetMv</button><button type="button" class="small-button" data-utility-init="criavar">CriaVar</button><button type="button" class="small-button" data-utility-init="zero">0</button><button type="button" class="small-button" data-utility-init="blank">""</button><button type="button" class="small-button" data-utility-init="true">.T.</button><button type="button" class="small-button" data-utility-init="false">.F.</button><button type="button" class="small-button" data-utility-init="fixed">Valor fixo</button><button type="button" class="small-button" data-utility-init="positivo">Positivo()</button></div><small id="utility-init-description" class="utility-description"></small><div class="code-box"><pre id="utility-init-preview"></pre><button class="copy-button" type="button" data-copy="utility-init-preview" aria-label="Copiar inicializador rápido" title="Copiar">▢</button></div></div>
+          <div class="utility-group"><span class="field-label">Validação rápida</span><div class="utility-methods" aria-label="Validações rápidas"><button type="button" class="small-button" data-utility-valid="positivo">Positivo()</button><button type="button" class="small-button" data-utility-valid="naovazio">NaoVazio()</button><button type="button" class="small-button" data-utility-valid="existcpo">ExistCpo</button><button type="button" class="small-button" data-utility-valid="existchav">ExistChav</button><button type="button" class="small-button" data-utility-valid="pertence">Pertence</button><button type="button" class="small-button" data-utility-valid="optional-existcpo">Opcional + ExistCpo</button><button type="button" class="small-button" data-utility-valid="empty">Empty()</button><button type="button" class="small-button" data-utility-valid="notempty">!Empty()</button><button type="button" class="small-button" data-utility-valid="nonnegative">Não negativo</button><button type="button" class="small-button" data-utility-valid="max-length">Tamanho máximo</button><button type="button" class="small-button" data-utility-valid="uppercase">Somente maiúsculas</button><button type="button" class="small-button" data-utility-valid="lowercase">Somente minúsculas</button><button type="button" class="small-button" data-utility-valid="equals">Igual ao valor</button><button type="button" class="small-button" data-utility-valid="different">Diferente do valor</button></div><small id="utility-valid-description" class="utility-description"></small><div class="code-box"><pre id="utility-valid-preview"></pre><button class="copy-button" type="button" data-copy="utility-valid-preview" aria-label="Copiar validação rápida" title="Copiar">▢</button></div></div>
+        </div>
+      </section>
+      <section id="frequent-tables-card" class="card"><div class="card-header"><h2>Tabelas frequentes</h2><p>Selecione uma tabela para preencher a regra do gatilho.</p></div><div id="frequent-tables" class="card-body table-buttons"></div></section>
+      <section id="trigger-summary-card" class="card summary-card" aria-labelledby="heading-summary">
+        <div class="card-header"><h2 id="heading-summary"><span class="accent-icon">✧</span> Resumo do gatilho SX7</h2><p>Estrutura clássica pronta para cadastro no SIGACFG.</p></div>
+        <div class="card-body stack summary-stack">
+          <div class="code-box"><span class="code-heading">Campo no dicionário SX3</span><pre id="sx3-summary"></pre><button class="copy-button" type="button" data-copy="sx3-summary" aria-label="Copiar campo SX3" title="Copiar">▢</button></div>
+          <div class="code-box"><span class="code-heading">Inicializador Padrão (X3_RELACAO) — copiar</span><pre id="init-summary"></pre><button class="copy-button" type="button" data-copy="init-summary" aria-label="Copiar inicializador do resumo" title="Copiar">▢</button></div>
+          <div class="code-box"><span id="valid-summary-label" class="code-heading">Validação (X3_VALID) — copiar</span><pre id="valid-summary"></pre><button class="copy-button" type="button" data-copy="valid-summary" aria-label="Copiar validação do resumo" title="Copiar">▢</button></div>
+          <div class="code-box"><span class="code-heading">Script ADVPL (FWSX3Util)</span><pre id="advpl-summary"></pre><button class="copy-button" type="button" data-copy="advpl-summary" aria-label="Copiar script ADVPL" title="Copiar">▢</button></div>
+          <div class="code-box"><span class="code-heading">Gatilho completo — copiar</span><pre id="sx7-summary"></pre><button class="copy-button" type="button" data-copy="sx7-summary" aria-label="Copiar gatilho SX7" title="Copiar">▢</button></div>
+          <div class="code-box"><span class="code-heading">Campo de destino — copiar</span><pre id="destination-summary"></pre><button class="copy-button" type="button" data-copy="destination-summary" aria-label="Copiar destino do resumo" title="Copiar">▢</button></div>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <div id="field-editor-modal" class="modal" hidden aria-hidden="true">
+    <div class="modal-backdrop" data-close-field-modal></div>
+    <section class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="field-modal-title">
+      <header class="modal-header"><div><h2 id="field-modal-title">Editar campo</h2><p>Configure o campo SX3 e seu gatilho SX7.</p></div><button class="icon-button" type="button" data-close-field-modal aria-label="Fechar editor do campo">×</button></header>
+      <div id="field-modal-body" class="modal-body"><div id="modal-settings" class="modal-settings"><div id="has-init-toggle" class="toggle-row"><div><label for="has-init">Este campo possui inicializador padrão?</label><small>Desmarque quando o campo não precisar de valor inicial automático.</small></div><input id="has-init" type="checkbox" role="switch"></div><div id="has-valid-toggle" class="toggle-row"><div><label for="has-valid">Este campo possui validação?</label><small>Desmarque quando o campo aceitar qualquer valor.</small></div><input id="has-valid" type="checkbox" role="switch"></div><div id="has-trigger-toggle" class="toggle-row"><div><label for="has-trigger">Possui gatilho SX7</label><small>Desmarque quando este campo não atualizar outro campo automaticamente.</small></div><input id="has-trigger" type="checkbox" role="switch"></div></div></div>
+      <footer class="modal-footer"><button class="small-button" type="button" data-close-field-modal>Salvar e fechar</button></footer>
+    </section>
+  </div>
+
+  <datalist id="tables"></datalist>
+  <datalist id="fields"></datalist>
+  <datalist id="destinations"></datalist>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
