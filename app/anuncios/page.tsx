@@ -1,25 +1,31 @@
-const bannerBots = './assets/banner-crio-bots-para-telegram.png';
-const bannerSites = './assets/banner-crio-sites-para-telegram.png';
+import bannerBots from './assets/banner-crio-bots-para-telegram.png';
+import bannerSites from './assets/banner-crio-apps-e-sites-com-ia.png';
 export default function Page() {
+  const redirect = process.env.SUPORTE_CONTATO ?? '';
   const ads = [
     {
-      title: null,
-      image: bannerBots,
+      title: 'Bots para Telegram',
+      image: bannerBots.src,
       urgent: false,
-      redirect: '' + process.env.SUPORTE_CONTATO,
+      redirect,
     },
     {
-      title: null,
-      image: bannerSites,
+      title: 'Aplicativos e sites com IA',
+      image: bannerSites.src,
       urgent: true,
-      redirect: '' + process.env.SUPORTE_CONTATO,
+      redirect,
     },
   ];
   return (
     <>
-      {ads.map((v, i) => (
-        <span key={i}>
-          {v.title};{v.image};{v.urgent};{v.redirect}
+      {ads.map((v) => (
+        <span key={v.image}
+          data-plics-ad="true"
+          data-title={v.title}
+          data-image={v.image}
+          data-urgent={String(v.urgent)}
+          data-redirect={v.redirect}>
+          {v.title};{v.image};{String(v.urgent)};{v.redirect}
         </span>
       ))}
     </>
