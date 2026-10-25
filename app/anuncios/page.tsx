@@ -6,13 +6,13 @@ export default function Page() {
       title: null,
       image: bannerBots,
       urgent: false,
-      redirect: '',
+      redirect: '' + process.env.SUPORTE_CONTATO,
     },
     {
       title: null,
       image: bannerSites,
       urgent: true,
-      redirect: '',
+      redirect: '' + process.env.SUPORTE_CONTATO,
     },
   ];
   return (
