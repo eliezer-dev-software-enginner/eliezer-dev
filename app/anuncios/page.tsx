@@ -1,7 +1,7 @@
 import bannerBots from './assets/banner-crio-bots-para-telegram.png';
 import bannerSites from './assets/banner-crio-apps-e-sites-com-ia.png';
 export default function Page() {
-  const redirect = process.env.SUPORTE_CONTATO ?? '';
+  const redirect = process.env.SUPORTE_CONTATO || '/';
   const ads = [
     {
       title: 'Bots para Telegram',
