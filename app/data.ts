@@ -261,6 +261,11 @@ export const techs = [
   },
 
   {
+    src: '/tech/vitest.svg',
+    alt: 'Vitest',
+  },
+
+  {
     src: node,
     alt: 'NodeJs',
   },
