@@ -42,7 +42,13 @@
     for (const [id, code] of Object.entries(outputs)) card.querySelector('#' + id).textContent = valid && entries.length ? code : '';
   }
   [['1', 'GREEN', 'Disponível'], ['2', 'YELLOW', 'Em uso'], ['3', 'RED', 'Baixado']].forEach(args => addRow(...args));
-  card.querySelector('#legend-add').onclick = () => { addRow(); render(); };
+  card.querySelector('#legend-add').onclick = () => {
+    const codes = [...rows.querySelectorAll('[data-name="Código"]')]
+      .map(input => input.value.trim()).filter(code => /^\d+$/.test(code));
+    const next = codes.reduce((max, code) => BigInt(code) > max ? BigInt(code) : max, 0n) + 1n;
+    addRow(String(next));
+    render();
+  };
   card.addEventListener('input', render);
   card.addEventListener('change', render);
   render();
