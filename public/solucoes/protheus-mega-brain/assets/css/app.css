@@ -139,3 +139,14 @@ hr { height: 1px; width: 100%; margin: 1px 0; border: 0; background: var(--borde
 .modal-footer { justify-content: flex-end; border-top: 1px solid var(--border); border-bottom: 0; }
 @media (max-width: 900px) { body { height: auto; display: block; overflow: auto; } .site-header { position: sticky; top: 0; } .layout { margin: 24px auto; padding: 0 16px; grid-template-columns: 1fr; grid-template-rows: auto; overflow: visible; } .editor, .summary-column { padding-bottom: 0; overflow: visible; } }
 @media (max-width: 560px) { .layout { margin: 18px auto; gap: 18px; } .editor, .summary-column { gap: 18px; } .card-header { padding: 18px 18px 0; } .card-body { padding: 18px; } .field-grid.two, .field-grid.three { grid-template-columns: 1fr; } .field-grid.name-grid { grid-template-columns: 100px minmax(0,1fr); } .span-two { grid-column: auto; } .brand-copy span { font-size: 10px; } .choice-grid { grid-template-columns: 1fr; } .modal { padding: 0; } .modal-dialog { width: 100%; max-height: 100dvh; border-radius: 0; } .modal-header, .modal-footer { padding: 14px 16px; } .modal-body { padding: 14px; gap: 14px; } }
+
+/* Catálogo de erros do Protheus. */
+body.common-errors-page { height: auto; display: block; overflow: auto; }
+.common-errors-content { max-width: 960px; margin: 32px auto; padding: 0 20px 40px; }
+.common-errors-content > p { color: var(--muted); margin-bottom: 24px; }
+.common-errors-content figure { margin: 0; }
+.common-errors-content img { display: block; max-width: 100%; height: auto; border-radius: 8px; }
+.common-errors-content figcaption { color: var(--muted); font-size: 13px; margin-top: 8px; }
+.common-errors-content ol { margin: 0; padding-left: 24px; line-height: 1.8; }
+.common-errors-page nav { display: flex; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 560px) { .common-errors-page .header-inner { flex-wrap: wrap; } }
