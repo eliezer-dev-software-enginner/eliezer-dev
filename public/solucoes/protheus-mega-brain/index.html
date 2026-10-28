@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/app.css">
   <script src="./assets/js/app.js" defer></script>
+  <script src="./assets/js/legendas.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -166,6 +167,23 @@
           </div>
           <div class="utility-group"><span class="field-label">Inicializador rápido</span><div class="utility-methods" aria-label="Inicializadores rápidos"><button type="button" class="small-button" data-utility-init="getsxenum">GetSXENum</button><button type="button" class="small-button" data-utility-init="getsx8num">GetSX8Num</button><button type="button" class="small-button" data-utility-init="data">dDataBase</button><button type="button" class="small-button" data-utility-init="dtos">DToS(data)</button><button type="button" class="small-button" data-utility-init="hora">Time()</button><button type="button" class="small-button" data-utility-init="usuario">cUserName</button><button type="button" class="small-button" data-utility-init="retcodusr">RetCodUsr()</button><button type="button" class="small-button" data-utility-init="filial">cFilAnt</button><button type="button" class="small-button" data-utility-init="xfilial">xFilial</button><button type="button" class="small-button" data-utility-init="getmv">GetMv</button><button type="button" class="small-button" data-utility-init="criavar">CriaVar</button><button type="button" class="small-button" data-utility-init="zero">0</button><button type="button" class="small-button" data-utility-init="blank">""</button><button type="button" class="small-button" data-utility-init="true">.T.</button><button type="button" class="small-button" data-utility-init="false">.F.</button><button type="button" class="small-button" data-utility-init="fixed">Valor fixo</button><button type="button" class="small-button" data-utility-init="positivo">Positivo()</button></div><small id="utility-init-description" class="utility-description"></small><div class="code-box"><pre id="utility-init-preview"></pre><button class="copy-button" type="button" data-copy="utility-init-preview" aria-label="Copiar inicializador rápido" title="Copiar">▢</button></div></div>
           <div class="utility-group"><span class="field-label">Validação rápida</span><div class="utility-methods" aria-label="Validações rápidas"><button type="button" class="small-button" data-utility-valid="positivo">Positivo()</button><button type="button" class="small-button" data-utility-valid="naovazio">NaoVazio()</button><button type="button" class="small-button" data-utility-valid="existcpo">ExistCpo</button><button type="button" class="small-button" data-utility-valid="existchav">ExistChav</button><button type="button" class="small-button" data-utility-valid="pertence">Pertence</button><button type="button" class="small-button" data-utility-valid="optional-existcpo">Opcional + ExistCpo</button><button type="button" class="small-button" data-utility-valid="empty">Empty()</button><button type="button" class="small-button" data-utility-valid="notempty">!Empty()</button><button type="button" class="small-button" data-utility-valid="nonnegative">Não negativo</button><button type="button" class="small-button" data-utility-valid="max-length">Tamanho máximo</button><button type="button" class="small-button" data-utility-valid="uppercase">Somente maiúsculas</button><button type="button" class="small-button" data-utility-valid="lowercase">Somente minúsculas</button><button type="button" class="small-button" data-utility-valid="equals">Igual ao valor</button><button type="button" class="small-button" data-utility-valid="different">Diferente do valor</button></div><small id="utility-valid-description" class="utility-description"></small><div class="code-box"><pre id="utility-valid-preview"></pre><button class="copy-button" type="button" data-copy="utility-valid-preview" aria-label="Copiar validação rápida" title="Copiar">▢</button></div></div>
+        </div>
+      </section>
+      <section id="legendas-card" class="card" aria-labelledby="heading-legendas">
+        <div class="card-header"><h2 id="heading-legendas">Utilitário: legendas do browse</h2><p>Monte as cores e o diálogo de legendas para seu projeto. Ajuste os códigos ao domínio do SX3.</p></div>
+        <div class="card-body stack">
+          <div class="field-grid">
+            <div class="field"><label for="legend-alias">Alias</label><input id="legend-alias" value="ZA4" maxlength="3"></div>
+            <div class="field"><label for="legend-field">Campo de status</label><input id="legend-field" value="ZA4_STATUS" maxlength="10"></div>
+            <div class="field"><label for="legend-function">Função de legenda (sem U_)</label><input id="legend-function" value="ZA4LEG" maxlength="10"></div>
+          </div>
+          <div id="legend-rows" class="stack"></div>
+          <button id="legend-add" type="button" class="small-button">Adicionar legenda</button>
+          <p id="legend-error" role="status"></p>
+          <p>Cole AddLegend antes de oBrowse:Activate(). Insira a opção no MenuDef e a função ao final do fonte. Salve o .prw em Windows-1252.</p>
+          <div class="code-box"><span class="code-heading">Cores do browse — AddLegend</span><pre id="legend-browse"></pre><button type="button" class="copy-button" data-copy="legend-browse" aria-label="Copiar Cores do browse — AddLegend">▢</button></div>
+          <div class="code-box"><span class="code-heading">Opção de menu — MenuDef</span><pre id="legend-menu"></pre><button type="button" class="copy-button" data-copy="legend-menu" aria-label="Copiar Opção de menu — MenuDef">▢</button></div>
+          <div class="code-box"><span class="code-heading">Função do diálogo — BrwLegenda</span><pre id="legend-dialog"></pre><button type="button" class="copy-button" data-copy="legend-dialog" aria-label="Copiar Função do diálogo — BrwLegenda">▢</button></div>
         </div>
       </section>
       <section id="frequent-tables-card" class="card"><div class="card-header"><h2>Tabelas frequentes</h2><p>Selecione uma tabela para preencher a regra do gatilho.</p></div><div id="frequent-tables" class="card-body table-buttons"></div></section>
