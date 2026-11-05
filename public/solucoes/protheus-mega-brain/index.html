@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/app.css?v=20261028-erros">
-  <script src="./assets/js/browse-columns.js" defer></script>
-  <script src="./assets/js/app.js?v=20261105-browse" defer></script>
+  <link rel="stylesheet" href="./assets/css/app.css?v=20261105-utilitarios">
+  <script src="./assets/js/browse-columns.js?v=20261105-produto" defer></script>
+  <script src="./assets/js/app.js?v=20261105-produto" defer></script>
   <script src="./assets/js/legendas.js" defer></script>
 </head>
 <body>
@@ -191,8 +191,13 @@
       <section id="browse-columns-card" class="card" aria-labelledby="heading-browse-columns">
         <div class="card-header"><h2 id="heading-browse-columns">Utilitário: colunas calculadas do browse</h2><p>Exiba nomes no lugar de códigos com FwGetUserName, ou use uma expressão ADVPL.</p></div>
         <div class="card-body stack">
-          <p>Adicione uma coluna, informe o título e o campo de origem. Exemplo: Solicitante + Z04_USER. O alias segue o prefixo da tabela no gerador MVC, à esquerda.</p>
-          <p>SetFields adiciona colunas. Para ocultar os códigos originais, desabilite sua exibição no browse no SX3. As colunas calculadas não alteram os dados gravados.</p>
+          <p>Alias usado: <strong id="browse-column-alias"></strong>. Ele vem do campo Alias no painel direito, no utilitário de legendas acima.</p>
+          <p>Informe título, campo e conteúdo exibido. Para ZA4_PROD, escolha Descrição de produto — Posicione (SB1). Nome do usuário serve para códigos de usuários, não de produtos. Novas colunas começam no modo Valor do campo.</p>
+          <aside class="browse-sx3-note" role="note" aria-label="Atenção à exibição no SX3">
+            <strong>Atenção: o campo original continua aparecendo no browse</strong>
+            <p>SetFields adiciona a coluna calculada, mas não oculta a original. Para mostrar somente a descrição, no Configurador, desabilite a exibição no browse do campo original no SX3. Exemplo: ao criar a coluna com a descrição do produto, desabilite a exibição de <code>ZA4_PROD</code>.</p>
+            <p>Isso oculta apenas a coluna no browse: o campo continua armazenado e disponível no formulário. Se quiser código e descrição lado a lado, mantenha a exibição original habilitada.</p>
+          </aside>
           <div id="browse-column-rows" class="stack"></div>
           <button id="browse-column-add" type="button" class="small-button">Adicionar coluna calculada</button>
           <p id="browse-column-error" role="status"></p>

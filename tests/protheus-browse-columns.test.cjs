@@ -31,3 +31,22 @@ test('suporta campo direto, expressao e aspas no titulo', () => {
   assert.match(custom.code, /Upper\(Z04->Z04_USER\)/);
   assert.match(custom.code, /Chr\(34\)/);
 });
+
+test('produto consulta SB1 com Posicione e alias informado, sem resolver usuario', () => {
+  const result = build('ZA4', [{title: 'Produto', field: 'ZA4_PROD', mode: 'product', expression: ''}]);
+  assert.equal(result.error, '');
+  assert.ok(result.code.includes('Posicione("SB1", 1, xFilial("SB1") + ZA4->ZA4_PROD, "B1_DESC")'));
+  assert.ok(!result.code.includes('FwGetUserName'));
+  assert.ok(!result.code.includes('ZA1->'));
+});
+
+test('alias do utilitario vem do campo Alias do painel direito', () => {
+  const field = {value: ' za4 '};
+  context.document.getElementById = id => {
+    assert.equal(id, 'legend-alias');
+    return field;
+  };
+  assert.equal(context.window.ProtheusBrowseColumns.getAlias(), 'ZA4');
+  context.window.ProtheusBrowseColumns.setAlias('Z04');
+  assert.equal(field.value, 'Z04');
+});

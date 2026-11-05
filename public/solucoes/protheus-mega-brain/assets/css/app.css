@@ -149,4 +149,11 @@ body.common-errors-page { height: auto; display: block; overflow: auto; }
 .common-errors-content figcaption { color: var(--muted); font-size: 13px; margin-top: 8px; }
 .common-errors-content ol { margin: 0; padding-left: 24px; line-height: 1.8; }
 .common-errors-page nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.browse-sx3-note { padding: 14px 16px; border: 1px solid #e7c369; border-left: 4px solid #bc8100; border-radius: 10px; background: #fff6db; color: #644500; font-size: 13px; line-height: 1.6; }
+.browse-sx3-note strong { display: block; font-size: 14px; }
+.browse-sx3-note p { margin: 8px 0 0; }
+@media (min-width: 901px) {
+  .layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); }
+  .editor, .summary-column { min-width: 0; }
+}
 @media (max-width: 560px) { .common-errors-page .header-inner { flex-wrap: wrap; } }

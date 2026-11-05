@@ -432,8 +432,11 @@
     const primaryKey = primaryKeyValue().split('+').filter(Boolean);
     const registros = {};
     for (const field of fields) registros[field.nome] = field.tipo === 'N' ? 0 : '';
-    const browse = window.ProtheusBrowseColumns.build(alias);
-    return { alias, functionName, title, fields, primaryKey, registros, browse };
+    const browseAlias = window.ProtheusBrowseColumns.getAlias();
+    const browse = window.ProtheusBrowseColumns.build(browseAlias);
+    const prwError = browse.error || (browse.code && browseAlias !== alias
+      ? `O Alias do painel direito (${browseAlias}) difere do prefixo MVC (${alias}). Para gerar o fonte completo, ajuste os dois para a mesma tabela. O trecho isolado usa ${browseAlias}.` : '');
+    return { alias, functionName, title, fields, primaryKey, registros, browse, browseAlias, prwError };
   }
 
   function mvcJson(config) {
@@ -464,10 +467,11 @@
 
   function renderMvc() {
     const config = mvcConfig();
-    put('browse-column-error', config.browse.error);
+    put('browse-column-error', config.prwError);
+    put('browse-column-alias', config.browseAlias);
     put('browse-fields-preview', config.browse.code);
     put('mvc-json-preview', mvcJson(config));
-    put('mvc-prw-preview', config.browse.error ? '' : mvcPrw(config).replace('//TODO: FAZER AS VALIDACOES', '//TODO: FAZER AS VALIDAÇÕES'));
+    put('mvc-prw-preview', config.prwError ? '' : mvcPrw(config).replace('//TODO: FAZER AS VALIDACOES', '//TODO: FAZER AS VALIDAÇÕES'));
   }
 
   function updateChoiceFields() {
@@ -642,6 +646,7 @@
           functionName: $('mvc-function').value,
           title: $('mvc-title').value,
           browseColumns: window.ProtheusBrowseColumns.read(),
+          browseAlias: window.ProtheusBrowseColumns.getAlias(),
           primaryKeyFields
         },
         utilities: {
@@ -669,6 +674,7 @@
         $('mvc-function').value = saved.mvc.functionName || `${$('table-prefix').value}MVC`;
         $('mvc-title').value = saved.mvc.title || '';
         window.ProtheusBrowseColumns.set(Array.isArray(saved.mvc.browseColumns) ? saved.mvc.browseColumns : []);
+        if (saved.mvc.browseAlias) window.ProtheusBrowseColumns.setAlias(saved.mvc.browseAlias);
         primaryKeyFields = Array.isArray(saved.mvc.primaryKeyFields) ? saved.mvc.primaryKeyFields : [];
       }
       if (saved.utilities) {
@@ -685,7 +691,7 @@
 
   function downloadGenerated(kind) {
     const config = mvcConfig();
-    if (kind !== 'json' && config.browse.error) { toast(config.browse.error); return; }
+    if (kind !== 'json' && config.prwError) { toast(config.prwError); return; }
     const isJson = kind === 'json';
     const content = isJson ? mvcJson(config) : mvcPrw(config).replace('//TODO: FAZER AS VALIDACOES', '//TODO: FAZER AS VALIDAÇÕES');
     const extension = isJson ? 'jsonc' : 'prw';

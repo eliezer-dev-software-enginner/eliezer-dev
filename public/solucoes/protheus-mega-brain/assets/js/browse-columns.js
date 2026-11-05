@@ -21,10 +21,11 @@
     label.textContent = 'Conteúdo exibido';
     const mode = document.createElement('select');
     mode.dataset.columnKey = 'mode';
-    mode.add(new Option('Nome do usuário — FwGetUserName', 'user'));
     mode.add(new Option('Valor do campo', 'field'));
+    mode.add(new Option('Nome do usuário — FwGetUserName (código de usuário)', 'user'));
+    mode.add(new Option('Descrição de produto — Posicione (SB1)', 'product'));
     mode.add(new Option('Expressão personalizada (retorno caractere)', 'expression'));
-    mode.value = column.mode || 'user';
+    mode.value = column.mode || 'field';
     label.append(mode);
     row.append(label);
     const remove = document.createElement('button');
@@ -50,7 +51,9 @@
         return {code: '', error: `Complete o título e o campo ou expressão da coluna ${index + 1}.`};
       }
       const expression = column.mode === 'user' ? `FwGetUserName(${alias}->${field})`
-        : column.mode === 'field' ? `cValToChar(${alias}->${field})` : column.expression;
+        : column.mode === 'field' ? `cValToChar(${alias}->${field})`
+          : column.mode === 'product' ? `Posicione("SB1", 1, xFilial("SB1") + ${alias}->${field}, "B1_DESC")`
+            : column.expression;
       definitions.push(`    { ${quote(column.title)}, {|| ${expression}}, 'C', '@!', 1, 60, 0 }`);
     }
     return {code: `oBrowse:SetFields({ ;\n${definitions.join(', ;\n')} ;\n})`, error: ''};
@@ -59,6 +62,8 @@
   document.getElementById('browse-column-add').onclick = () => { add(); changed(); };
   window.ProtheusBrowseColumns = {
     read, build,
+    getAlias() { return document.getElementById('legend-alias').value.trim().toUpperCase(); },
+    setAlias(alias) { document.getElementById('legend-alias').value = alias; },
     set(columns) { rows.replaceChildren(); columns.forEach(add); }
   };
 })();
