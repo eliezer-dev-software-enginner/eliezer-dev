@@ -1,6 +1,6 @@
 # Colunas calculadas do browse
 
-No Protheus Mega Brain, abra **Gerador MVC → Colunas calculadas do browse → Adicionar coluna calculada**. Informe título, campo de origem e conteúdo exibido. O alias vem do prefixo da tabela no topo do gerador.
+No Protheus Mega Brain, na coluna direita, abaixo de **Utilitário: legendas do browse**, abra **Utilitário: colunas calculadas do browse → Adicionar coluna calculada**. Informe título, campo de origem e conteúdo exibido. O alias vem do prefixo da tabela no topo do gerador, à esquerda. As definições continuam integradas ao fonte MVC completo.
 
 Para reproduzir o cadastro de solicitação de compra, use alias `Z04` e adicione:
 
