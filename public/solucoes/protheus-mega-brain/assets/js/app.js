@@ -432,7 +432,8 @@
     const primaryKey = primaryKeyValue().split('+').filter(Boolean);
     const registros = {};
     for (const field of fields) registros[field.nome] = field.tipo === 'N' ? 0 : '';
-    return { alias, functionName, title, fields, primaryKey, registros };
+    const browse = window.ProtheusBrowseColumns.build(alias);
+    return { alias, functionName, title, fields, primaryKey, registros, browse };
   }
 
   function mvcJson(config) {
@@ -448,16 +449,25 @@
     }, null, 2);
   }
 
-  function mvcPrw(config) {
+  function mvcBasePrw(config) {
     const key = config.primaryKey.length ? config.primaryKey : [`${config.alias}_FILIAL`, `${config.alias}_COD`];
     const keyCode = key.map((field) => `"${field}"`).join(', ');
     return `#Include "TOTVS.CH"\n#Include "FWMVCDef.ch"\n\nUser Function ${config.functionName}()\n    Local oBrowse := FWMBrowse():New()\n\n    oBrowse:SetAlias( '${config.alias}' )\n    oBrowse:SetDescription( GetTitle() )\n    oBrowse:Activate()\n\nReturn\n\nStatic Function MenuDef()\n    Local aRotina := {}\n\n    ADD OPTION aRotina TITLE 'Visualizar' ACTION 'VIEWDEF.${config.functionName}' OPERATION 2 ACCESS 0\n    ADD OPTION aRotina TITLE 'Incluir'    ACTION 'VIEWDEF.${config.functionName}' OPERATION 3 ACCESS 0\n    ADD OPTION aRotina TITLE 'Alterar'    ACTION 'VIEWDEF.${config.functionName}' OPERATION 4 ACCESS 0\n    ADD OPTION aRotina TITLE 'Excluir'    ACTION 'VIEWDEF.${config.functionName}' OPERATION 5 ACCESS 0\nReturn aRotina\n\nStatic Function ModelDef()\n    Local oModel  := Nil\n    Local oStruct := FWFormStruct(1, "${config.alias}")\n\n    oModel := MPFormModel():New( 'MODEL_${config.alias}', , { | oModel | fVldSalvar( oModel ) } )\n    oModel:AddFields( '${config.alias}MASTER', /*cOwner*/, oStruct )\n    oModel:SetPrimaryKey({ ${keyCode} })\n    oModel:SetDescription( GetTitle() )\n\nReturn oModel\n\nStatic Function ViewDef()\n    Local oModel  := FWLoadModel("${config.functionName}")\n    Local oStruct := FWFormStruct(2, "${config.alias}")\n    Local oView   := Nil\n\n    oView := FWFormView():New()\n    oView:SetModel( oModel )\n    oView:AddField( 'VIEW_${config.alias}', oStruct, '${config.alias}MASTER' )\n    oView:CreateHorizontalBox( 'BOX_${config.alias}', 100 )\n    oView:SetOwnerView( 'VIEW_${config.alias}', 'BOX_${config.alias}' )\nReturn oView\n\nStatic Function GetTitle()\nReturn "${config.title.replace(/"/g, '""')}"\n\nStatic Function fVldSalvar( oModel )\n    Local aErros := {}\n\n    //TODO: FAZER AS VALIDACOES\n\nReturn( Len( aErros ) == 0 )\n`;
   }
 
+  function mvcPrw(config) {
+    const source = mvcBasePrw(config);
+    if (!config.browse.code) return source;
+    const columns = config.browse.code.split('\n').map(line => `    ${line}`).join('\n');
+    return source.replace('    oBrowse:Activate()', `${columns}\n    oBrowse:Activate()`);
+  }
+
   function renderMvc() {
     const config = mvcConfig();
+    put('browse-column-error', config.browse.error);
+    put('browse-fields-preview', config.browse.code);
     put('mvc-json-preview', mvcJson(config));
-    put('mvc-prw-preview', mvcPrw(config).replace('//TODO: FAZER AS VALIDACOES', '//TODO: FAZER AS VALIDAÇÕES'));
+    put('mvc-prw-preview', config.browse.error ? '' : mvcPrw(config).replace('//TODO: FAZER AS VALIDACOES', '//TODO: FAZER AS VALIDAÇÕES'));
   }
 
   function updateChoiceFields() {
@@ -631,6 +641,7 @@
           modelType: $('mvc-model-type').value,
           functionName: $('mvc-function').value,
           title: $('mvc-title').value,
+          browseColumns: window.ProtheusBrowseColumns.read(),
           primaryKeyFields
         },
         utilities: {
@@ -657,6 +668,7 @@
         $('mvc-model-type').value = saved.mvc.modelType || 'tipo1';
         $('mvc-function').value = saved.mvc.functionName || `${$('table-prefix').value}MVC`;
         $('mvc-title').value = saved.mvc.title || '';
+        window.ProtheusBrowseColumns.set(Array.isArray(saved.mvc.browseColumns) ? saved.mvc.browseColumns : []);
         primaryKeyFields = Array.isArray(saved.mvc.primaryKeyFields) ? saved.mvc.primaryKeyFields : [];
       }
       if (saved.utilities) {
@@ -673,6 +685,7 @@
 
   function downloadGenerated(kind) {
     const config = mvcConfig();
+    if (kind !== 'json' && config.browse.error) { toast(config.browse.error); return; }
     const isJson = kind === 'json';
     const content = isJson ? mvcJson(config) : mvcPrw(config).replace('//TODO: FAZER AS VALIDACOES', '//TODO: FAZER AS VALIDAÇÕES');
     const extension = isJson ? 'jsonc' : 'prw';
@@ -779,6 +792,7 @@
     }
   } catch { /* storage unavailable */ }
   initializeFieldModal();
+  document.addEventListener('browse-columns-change', render);
   initializeSuggestions();
   if (!loadProject()) currentFieldId = `field-${Date.now()}`;
   render();

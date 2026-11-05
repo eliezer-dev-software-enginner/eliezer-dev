@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/app.css?v=20261028-erros">
-  <script src="./assets/js/app.js" defer></script>
+  <script src="./assets/js/browse-columns.js" defer></script>
+  <script src="./assets/js/app.js?v=20261105-browse" defer></script>
   <script src="./assets/js/legendas.js" defer></script>
 </head>
 <body>
@@ -149,6 +150,15 @@
             <div class="field"><label>Alias / tabela</label><div class="static-value mono" id="mvc-alias-preview">ZA1</div><small>Definido pelo prefixo da tabela acima.</small></div>
             <div class="field"><label for="mvc-function">User Function</label><input id="mvc-function" class="mono upper" value="ZA1MVC"></div>
             <div class="field"><label for="mvc-title">Descrição do cadastro</label><input id="mvc-title" value="Gerenciamento de livros"></div>
+            <div class="field span-two">
+              <h3>Colunas calculadas do browse</h3>
+              <p>Exiba nomes no lugar de códigos com FwGetUserName, ou use uma expressão ADVPL. Adicione uma coluna, informe o título e o campo de origem. Exemplo: Solicitante + Z04_USER, com alias Z04.</p>
+              <p>SetFields adiciona colunas. Para ocultar os códigos originais, desabilite sua exibição no browse no SX3. As colunas calculadas não alteram os dados gravados.</p>
+              <div id="browse-column-rows" class="stack"></div>
+              <button id="browse-column-add" type="button" class="small-button">Adicionar coluna calculada</button>
+              <p id="browse-column-error" role="status"></p>
+              <div class="code-box"><span class="code-heading">Trecho para inserir antes de Activate</span><pre id="browse-fields-preview"></pre><button class="copy-button" type="button" data-copy="browse-fields-preview" aria-label="Copiar colunas calculadas">▢</button></div>
+            </div>
             <div class="field span-two"><label for="mvc-primary-key">Chave primária</label><div id="mvc-primary-key" class="static-value mono"></div><div id="mvc-primary-key-choices" class="suggestions"></div><small><code><span class="mono">PREFIXO_FILIAL</span></code> é obrigatório. Clique nos campos para adicionar ou remover.</small></div>
           </div>
           <div class="field"><div class="label-line"><span class="field-label muted-label">JSON do cenário</span><div class="code-actions"><button class="copy-button inline" type="button" data-copy="mvc-json-preview" aria-label="Copiar JSON MVC" title="Copiar">▢</button><button class="small-button" type="button" data-download="json">Baixar .jsonc</button></div></div><div class="code-box"><pre id="mvc-json-preview"></pre></div></div>
