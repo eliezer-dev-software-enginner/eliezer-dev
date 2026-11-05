@@ -40,13 +40,19 @@ test('produto consulta SB1 com Posicione e alias informado, sem resolver usuario
   assert.ok(!result.code.includes('ZA1->'));
 });
 
-test('alias do utilitario vem do campo Alias do painel direito', () => {
+test('alias das colunas vem de Tabela / alias em Utilidades ADVPL', () => {
   const field = {value: ' za4 '};
   context.document.getElementById = id => {
-    assert.equal(id, 'legend-alias');
+    assert.equal(id, 'utility-table');
     return field;
   };
   assert.equal(context.window.ProtheusBrowseColumns.getAlias(), 'ZA4');
   context.window.ProtheusBrowseColumns.setAlias('Z04');
   assert.equal(field.value, 'Z04');
+});
+
+test('pagina possui apenas o alias compartilhado das Utilidades ADVPL', () => {
+  const html = fs.readFileSync(path.join(__dirname, '../public/solucoes/protheus-mega-brain/index.html'), 'utf8');
+  assert.equal((html.match(/id="utility-table"/g) || []).length, 1);
+  assert.equal(html.includes('id="legend-alias"'), false);
 });

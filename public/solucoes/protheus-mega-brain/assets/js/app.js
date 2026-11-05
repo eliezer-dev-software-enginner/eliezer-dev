@@ -317,6 +317,10 @@
     return `"${parameter.replace(/"/g, '""')}"`;
   }
 
+  function validPosicioneParameter(parameter) {
+    return /^[A-Z][A-Z0-9]{2},[A-Z][A-Z0-9_]{1,9}$/.test(parameter.trim().toUpperCase().replace(/\s+/g, ''));
+  }
+
   function utilityInitializer() {
     const table = utilityTable();
     const field = utilityField();
@@ -329,6 +333,12 @@
       case 'retcodusr': return 'RetCodUsr()';
       case 'filial': return 'cFilAnt';
       case 'xfilial': return `xFilial("${table}")`;
+      case 'posicione': {
+        const [lookupTable = '', returnField = ''] = utilityParameter('')
+          .toUpperCase().split(',').map((item) => item.trim().replace(/\s+/g, ''));
+        const targetTable = lookupTable || 'SB1';
+        return `Posicione("${targetTable}", 1, xFilial("${targetTable}") + ${table}->${field}, "${returnField || 'B1_DESC'}")`;
+      }
       case 'getmv': return `GetMv("${utilityParameter('MV_')}")`;
       case 'criavar': return `CriaVar("${field}")`;
       case 'zero': return '0';
@@ -373,6 +383,7 @@
       retcodusr: 'Obtém o código do usuário conectado na sessão.',
       filial: 'Preenche o campo com a filial atualmente em uso.',
       xfilial: 'Obtém a filial da tabela/alias informado.',
+      posicione: 'Consulta outra tabela. Use Tabela / alias e Campo como origem; em Parâmetro / valor, informe TABELA_CONSULTADA,CAMPO_RETORNO, por exemplo SB1,B1_DESC. A prévia acompanha a digitação.',
       getmv: 'Lê o conteúdo de um parâmetro do dicionário SX6.',
       criavar: 'Usa o valor padrão do campo informado no dicionário.',
       zero: 'Inicializa o campo numérico com zero.',
@@ -400,7 +411,16 @@
     };
     put('utility-init-preview', utilityInitializer());
     put('utility-valid-preview', utilityValidation());
-    put('utility-init-description', initDescriptions[utilityState.init]);
+    const initDescription = $('utility-init-description');
+    initDescription.textContent = initDescriptions[utilityState.init];
+    if (utilityState.init === 'posicione') {
+      const example = 'por exemplo SB1,B1_DESC';
+      const [before, after] = initDescriptions.posicione.split(example);
+      initDescription.replaceChildren(document.createTextNode(before));
+      const highlight = document.createElement('strong');
+      highlight.textContent = example;
+      initDescription.append(highlight, document.createTextNode(after));
+    }
     put('utility-valid-description', validDescriptions[utilityState.valid]);
     for (const button of document.querySelectorAll('[data-utility-init]')) {
       button.setAttribute('aria-pressed', String(button.dataset.utilityInit === utilityState.init));
@@ -435,7 +455,7 @@
     const browseAlias = window.ProtheusBrowseColumns.getAlias();
     const browse = window.ProtheusBrowseColumns.build(browseAlias);
     const prwError = browse.error || (browse.code && browseAlias !== alias
-      ? `O Alias do painel direito (${browseAlias}) difere do prefixo MVC (${alias}). Para gerar o fonte completo, ajuste os dois para a mesma tabela. O trecho isolado usa ${browseAlias}.` : '');
+      ? `Tabela / alias em Utilidades ADVPL (${browseAlias}) difere do prefixo MVC (${alias}). Para gerar o fonte completo, ajuste os dois para a mesma tabela. O trecho isolado usa ${browseAlias}.` : '');
     return { alias, functionName, title, fields, primaryKey, registros, browse, browseAlias, prwError };
   }
 
@@ -646,7 +666,6 @@
           functionName: $('mvc-function').value,
           title: $('mvc-title').value,
           browseColumns: window.ProtheusBrowseColumns.read(),
-          browseAlias: window.ProtheusBrowseColumns.getAlias(),
           primaryKeyFields
         },
         utilities: {
@@ -674,16 +693,19 @@
         $('mvc-function').value = saved.mvc.functionName || `${$('table-prefix').value}MVC`;
         $('mvc-title').value = saved.mvc.title || '';
         window.ProtheusBrowseColumns.set(Array.isArray(saved.mvc.browseColumns) ? saved.mvc.browseColumns : []);
-        if (saved.mvc.browseAlias) window.ProtheusBrowseColumns.setAlias(saved.mvc.browseAlias);
         primaryKeyFields = Array.isArray(saved.mvc.primaryKeyFields) ? saved.mvc.primaryKeyFields : [];
       }
       if (saved.utilities) {
         $('utility-field').value = saved.utilities.field || '';
-        $('utility-table').value = saved.utilities.table || '';
         $('utility-parameter').value = saved.utilities.parameter || '';
         utilityState.init = saved.utilities.init || 'getsxenum';
         utilityState.valid = saved.utilities.valid || 'positivo';
+        if (utilityState.init === 'posicione' && !validPosicioneParameter($('utility-parameter').value)) {
+          $('utility-parameter').value = 'SB1,B1_DESC';
+        }
       }
+      const savedAlias = saved.utilities?.table || saved.mvc?.browseAlias;
+      if (savedAlias) window.ProtheusBrowseColumns.setAlias(savedAlias);
       applyFieldRecord(record);
       return true;
     } catch { return false; }
@@ -709,6 +731,9 @@
     const utilityInit = event.target.closest('[data-utility-init]');
     if (utilityInit) {
       utilityState.init = utilityInit.dataset.utilityInit;
+      if (utilityState.init === 'posicione' && !validPosicioneParameter($('utility-parameter').value)) {
+        $('utility-parameter').value = 'SB1,B1_DESC';
+      }
       render();
       return;
     }

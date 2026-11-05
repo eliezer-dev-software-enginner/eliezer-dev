@@ -107,6 +107,7 @@ hr { height: 1px; width: 100%; margin: 1px 0; border: 0; background: var(--borde
 .utility-methods { display: flex; flex-wrap: wrap; gap: 7px; }
 .utility-methods button[aria-pressed="true"] { color: #fff; background: var(--teal); border-color: var(--teal); }
 .utility-description { min-height: 17px; color: var(--muted); line-height: 1.4; }
+.utility-description strong { padding: 1px 4px; color: var(--fg); background: var(--teal-soft); border-radius: 4px; }
 .field-list { display: grid; gap: 8px; }
 .field-list-item { min-width: 0; padding: 10px 12px; display: grid; gap: 3px; text-align: left; color: var(--fg); background: var(--card); border: 1px solid var(--border); border-radius: 9px; box-shadow: var(--shadow); }
 .field-list-item strong { overflow-wrap: anywhere; font-family: "JetBrains Mono", ui-monospace, Consolas, monospace; font-size: 13px; }

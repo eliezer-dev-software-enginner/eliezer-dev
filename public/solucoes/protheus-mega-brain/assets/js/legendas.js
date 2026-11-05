@@ -1,5 +1,6 @@
 (() => {
   const card = document.getElementById('legendas-card');
+  const aliasInput = document.getElementById('utility-table');
   const rows = card.querySelector('#legend-rows');
   const colors = { GREEN: 'BR_VERDE', YELLOW: 'BR_AMARELO', RED: 'BR_VERMELHO', BLUE: 'BR_AZUL', GRAY: 'BR_CINZA', ORANGE: 'BR_LARANJA' };
   const quote = value => '"' + value.replaceAll('"', '" + Chr(34) + "').replace(/[\r\n]/g, ' ') + '"';
@@ -28,11 +29,11 @@
     row.append(remove); rows.append(row);
   }
   function render() {
-    const alias = card.querySelector('#legend-alias').value.trim().toUpperCase();
+    const alias = aliasInput.value.trim().toUpperCase();
     const field = card.querySelector('#legend-field').value.trim().toUpperCase();
     const fn = card.querySelector('#legend-function').value.trim().toUpperCase();
     const valid = /^[A-Z][A-Z0-9]{2}$/.test(alias) && /^[A-Z][A-Z0-9_]{0,9}$/.test(field) && /^[A-Z][A-Z0-9_]{0,9}$/.test(fn);
-    card.querySelector('#legend-error').textContent = valid ? '' : 'Informe alias de 3 caracteres e nomes válidos de campo/função (até 10 caracteres).';
+    card.querySelector('#legend-error').textContent = valid ? '' : 'Informe em Utilidades ADVPL um alias de 3 caracteres e nomes válidos de campo/função (até 10 caracteres).';
     const entries = [...rows.children].map(row => ({code: row.querySelector('[data-name="Código"]').value, label: row.querySelector('[data-name="Descrição"]').value, color: row.querySelector('select').value}));
     const outputs = {
       'legend-browse': entries.map(e => `oBrowse:AddLegend(${quote(`${field} == '${e.code.replaceAll("'", "' + Chr(39) + '")}'`)}, '${e.color}', ${quote(e.label)})`).join('\n'),
@@ -51,5 +52,7 @@
   };
   card.addEventListener('input', render);
   card.addEventListener('change', render);
+  aliasInput.addEventListener('input', render);
+  aliasInput.addEventListener('change', render);
   render();
 })();

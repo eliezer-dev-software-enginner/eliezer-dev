@@ -19,7 +19,7 @@ As configurações do projeto são salvas automaticamente no `localStorage` do n
 
 ## Utilidades ADVPL
 
-O card **Utilidades ADVPL** fica disponível fora do modal. Informe um campo e, quando necessário, uma tabela/alias e parâmetro/valor para gerar e copiar rapidamente inicializadores e validações frequentes. Ele inclui atalhos como `GetMv`, `CriaVar`, `xFilial`, `Pertence`, `Empty` e composições opcionais com `ExistCpo`.
+O card **Utilidades ADVPL** fica disponível fora do modal. Informe um campo e, quando necessário, uma tabela/alias e parâmetro/valor para gerar e copiar rapidamente inicializadores e validações frequentes. Ele inclui atalhos como `GetMv`, `CriaVar`, `xFilial`, `Posicione`, `Pertence`, `Empty` e composições opcionais com `ExistCpo`. Para `Posicione`, use a tabela/alias e o campo como origem e informe a consulta no formato `TABELA_CONSULTADA,CAMPO_RETORNO`, por exemplo `SB1,B1_DESC`.
 
 ## Geração MVC
 

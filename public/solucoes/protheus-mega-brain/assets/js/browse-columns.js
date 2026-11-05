@@ -62,8 +62,8 @@
   document.getElementById('browse-column-add').onclick = () => { add(); changed(); };
   window.ProtheusBrowseColumns = {
     read, build,
-    getAlias() { return document.getElementById('legend-alias').value.trim().toUpperCase(); },
-    setAlias(alias) { document.getElementById('legend-alias').value = alias; },
+    getAlias() { return document.getElementById('utility-table').value.trim().toUpperCase(); },
+    setAlias(alias) { document.getElementById('utility-table').value = alias; },
     set(columns) { rows.replaceChildren(); columns.forEach(add); }
   };
 })();
