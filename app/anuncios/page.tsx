@@ -21,11 +21,11 @@ export default function Page() {
       description: 'Crie novas experiências digitais para sua empresa.',
     },
     {
-      title: 'Sua empresa merece um aplicativo próprio!',
+      title: 'Sua empresa merece um aplicativo android próprio!',
       image: bannerAndroid.src,
       urgent: true,
       redirect,
-      audience: ['plics-sw'],
+      audience: ['plics-sw', 'minastex-pedidos'],
       bannerType: 'square',
       description:
         'Transforme sua ideia em um aplicativo Android sob medida. Você imagina, eu desenvolvo!',
