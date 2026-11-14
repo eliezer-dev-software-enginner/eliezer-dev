@@ -26,6 +26,7 @@ export default function Page() {
       urgent: true,
       redirect,
       audience: ['plics-sw'],
+      bannerType: 'square',
       description:
         'Transforme sua ideia em um aplicativo Android sob medida. Você imagina, eu desenvolvo!',
     },
@@ -42,6 +43,7 @@ export default function Page() {
           }
           data-title={v.title}
           data-description={v.description}
+          data-banner-type={v.bannerType ?? 'banner'}
           data-image={v.image}
           data-urgent={String(v.urgent)}
           data-redirect={v.redirect}
